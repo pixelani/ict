@@ -1,3 +1,18 @@
+# 2024.02.21 (작업중) 
+- Header 메뉴, Main Intro: Carosel, Swipe image, Footer
+- 
+# 2024.02.20 4차 디자인 Figma / HTML
+- (수정사항 02.18 디자인을 기준으로 / 기업목록만 02.20 버전으로)
+- 
+# 2024.02.18 3차 디자인 Figma
+
+# 2024.02.16 2차시안 Photoshop
+
+# 2024.02.13 1차시안 2종 Photoshop 
+
+
+
+
 [2024.01.22 작성]
 
 # ict web renewal project
