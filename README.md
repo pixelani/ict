@@ -7,9 +7,10 @@
 # 2024.02.18 3차 디자인 Figma
 
 # 2024.02.16 2차시안 Photoshop
+<img src="https://github.com/pixelani/ict/blob/main/www_20240216/design_c_full.png" width="100%">
 
 # 2024.02.13 1차시안 2종 Photoshop 
-<img src="https://github.com/pixelani/ict/blob/main/www_20240213/design_a_full.png" width="300px"> <img src="https://github.com/pixelani/ict/blob/main/www_20240213/design_b_full.png" width="300px"> 
+<img src="https://github.com/pixelani/ict/blob/main/www_20240213/design_a_full.png" width="50%"> <img src="https://github.com/pixelani/ict/blob/main/www_20240213/design_b_full.png" width="50%"> 
 
 
 
