@@ -5,6 +5,7 @@
 - (수정사항 02.18 디자인을 기준으로 / 기업목록만 02.20 버전으로)
 - 
 # 2024.02.18 3차 디자인 Figma
+<img src="https://github.com/pixelani/ict/blob/main/www_20240218/preview_4th.png" width="100%">
 
 # 2024.02.16 2차시안 Photoshop
 <img src="https://github.com/pixelani/ict/blob/main/www_20240216/design_c_full.png" width="100%">
