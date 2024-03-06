@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Rolling Banner</title>
+    <style>
+
+
+
+        .roll-wrap {
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+        }
+        .rolling-list {
+            display: flex;
+            overflow: hidden;
+        }
+        .rolling-list ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            animation-duration: 100s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        .rolling-list:not(.reverse) ul {
+            animation-name: rollingleft;
+        }
+        .rolling-list.reverse ul {
+            animation-name: rollingright;
+        }
+        .rolling-list ul li {
+            list-style-type: none;
+        }
+        .rolling-list ul li img{
+            width: 180px;
+            margin: 20px;
+        }
+
+        @keyframes rollingleft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes rollingright {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ICT Rolling Banner -->
+
+    <div class="roll-wrap">
+
+
+
+        <!-- First row -->
+        <div class="rolling-list">
+            <ul><li><img src="./assets/img/company/c001.png"></li>
+                <li><img src="./assets/img/company/c002.png"></li>
+                <li><img src="./assets/img/company/c003.png"></li>
+                <li><img src="./assets/img/company/c004.png"></li>
+                <li><img src="./assets/img/company/c005.png"></li>
+                <li><img src="./assets/img/company/c006.png"></li>
+                <li><img src="./assets/img/company/c007.png"></li>
+                <li><img src="./assets/img/company/c008.png"></li>
+                <li><img src="./assets/img/company/c009.png"></li>
+                <li><img src="./assets/img/company/c010.png"></li>
+                <li><img src="./assets/img/company/c011.png"></li>
+                <li><img src="./assets/img/company/c012.png"></li>
+                <li><img src="./assets/img/company/c013.png"></li>
+                <li><img src="./assets/img/company/c014.png"></li>
+                <li><img src="./assets/img/company/c015.png"></li>
+                <li><img src="./assets/img/company/c016.png"></li>
+                <li><img src="./assets/img/company/c017.png"></li>
+                <li><img src="./assets/img/company/c018.png"></li>
+                <li><img src="./assets/img/company/c019.png"></li>
+                <li><img src="./assets/img/company/c020.png"></li>
+                <li><img src="./assets/img/company/c021.png"></li>
+                <li><img src="./assets/img/company/c022.png"></li>
+                <li><img src="./assets/img/company/c023.png"></li>
+                
+                <!-- Repeat the sequence for seamless transition -->
+                <li><img src="./assets/img/company/c001.png"></li>
+                <li><img src="./assets/img/company/c002.png"></li>
+                <li><img src="./assets/img/company/c003.png"></li>
+                <li><img src="./assets/img/company/c004.png"></li>
+                <li><img src="./assets/img/company/c005.png"></li>
+                <li><img src="./assets/img/company/c006.png"></li>
+                <li><img src="./assets/img/company/c007.png"></li>
+                <li><img src="./assets/img/company/c008.png"></li>
+                <li><img src="./assets/img/company/c009.png"></li>
+                <li><img src="./assets/img/company/c010.png"></li>
+                <li><img src="./assets/img/company/c011.png"></li>
+                <li><img src="./assets/img/company/c012.png"></li>
+                <li><img src="./assets/img/company/c013.png"></li>
+                <li><img src="./assets/img/company/c014.png"></li>
+                <li><img src="./assets/img/company/c015.png"></li>
+                <li><img src="./assets/img/company/c016.png"></li>
+                <li><img src="./assets/img/company/c017.png"></li>
+                <li><img src="./assets/img/company/c018.png"></li>
+                <li><img src="./assets/img/company/c019.png"></li>
+                <li><img src="./assets/img/company/c020.png"></li>
+                <li><img src="./assets/img/company/c021.png"></li>
+                <li><img src="./assets/img/company/c022.png"></li>
+                <li><img src="./assets/img/company/c023.png"></li>
+            </ul>
+        </div>
+        
+        <!-- Second row (reverse direction) -->
+        <div class="rolling-list reverse">
+            <ul>
+                <li><img src="./assets/img/company/c024.png"></li>
+                <li><img src="./assets/img/company/c025.png"></li>
+                <li><img src="./assets/img/company/c026.png"></li>
+                <li><img src="./assets/img/company/c027.png"></li>
+                <li><img src="./assets/img/company/c028.png"></li>
+                <li><img src="./assets/img/company/c029.png"></li>
+                <li><img src="./assets/img/company/c030.png"></li>
+                <li><img src="./assets/img/company/c031.png"></li>
+                <li><img src="./assets/img/company/c032.png"></li>
+                <li><img src="./assets/img/company/c033.png"></li>
+                <li><img src="./assets/img/company/c034.png"></li>
+                <li><img src="./assets/img/company/c035.png"></li>
+                <li><img src="./assets/img/company/c036.png"></li>
+                <li><img src="./assets/img/company/c037.png"></li>
+                <li><img src="./assets/img/company/c038.png"></li>
+                <li><img src="./assets/img/company/c039.png"></li>
+                <li><img src="./assets/img/company/c040.png"></li>
+                <li><img src="./assets/img/company/c041.png"></li>
+                <li><img src="./assets/img/company/c042.png"></li>
+                <li><img src="./assets/img/company/c043.png"></li>
+                <li><img src="./assets/img/company/c044.png"></li>
+                <li><img src="./assets/img/company/c045.png"></li>
+                <li><img src="./assets/img/company/c046.png"></li>
+                <!-- Repeat the sequence for seamless transition -->
+                <li><img src="./assets/img/company/c024.png"></li>
+                <li><img src="./assets/img/company/c025.png"></li>
+                <li><img src="./assets/img/company/c026.png"></li>
+                <li><img src="./assets/img/company/c027.png"></li>
+                <li><img src="./assets/img/company/c028.png"></li>
+                <li><img src="./assets/img/company/c029.png"></li>
+                <li><img src="./assets/img/company/c030.png"></li>
+                <li><img src="./assets/img/company/c031.png"></li>
+                <li><img src="./assets/img/company/c032.png"></li>
+                <li><img src="./assets/img/company/c033.png"></li>
+                <li><img src="./assets/img/company/c034.png"></li>
+                <li><img src="./assets/img/company/c035.png"></li>
+                <li><img src="./assets/img/company/c036.png"></li>
+                <li><img src="./assets/img/company/c037.png"></li>
+                <li><img src="./assets/img/company/c038.png"></li>
+                <li><img src="./assets/img/company/c039.png"></li>
+                <li><img src="./assets/img/company/c040.png"></li>
+                <li><img src="./assets/img/company/c041.png"></li>
+                <li><img src="./assets/img/company/c042.png"></li>
+                <li><img src="./assets/img/company/c043.png"></li>
+                <li><img src="./assets/img/company/c044.png"></li>
+                <li><img src="./assets/img/company/c045.png"></li>
+                <li><img src="./assets/img/company/c046.png"></li>
+            </ul>
+        </div>
+
+        <!-- Add more rows as needed, following the same pattern -->
+
+
+        
+
+        <!-- First row -->
+        <div class="rolling-list">
+            <ul>
+                <li><img src="./assets/img/company/c047.png"></li>
+                <li><img src="./assets/img/company/c048.png"></li>
+                <li><img src="./assets/img/company/c049.png"></li>
+                <li><img src="./assets/img/company/c050.png"></li>
+                <li><img src="./assets/img/company/c051.png"></li>
+                <li><img src="./assets/img/company/c052.png"></li>
+                <li><img src="./assets/img/company/c053.png"></li>
+                <li><img src="./assets/img/company/c054.png"></li>
+                <li><img src="./assets/img/company/c055.png"></li>
+                <li><img src="./assets/img/company/c056.png"></li>
+                <li><img src="./assets/img/company/c057.png"></li>
+                <li><img src="./assets/img/company/c058.png"></li>
+                <li><img src="./assets/img/company/c059.png"></li>
+                <li><img src="./assets/img/company/c060.png"></li>
+                <li><img src="./assets/img/company/c061.png"></li>
+                <li><img src="./assets/img/company/c062.png"></li>
+                <li><img src="./assets/img/company/c063.png"></li>
+                <li><img src="./assets/img/company/c064.png"></li>
+                <li><img src="./assets/img/company/c065.png"></li>
+                <li><img src="./assets/img/company/c066.png"></li>
+                <li><img src="./assets/img/company/c067.png"></li>
+                <li><img src="./assets/img/company/c068.png"></li>
+                <li><img src="./assets/img/company/c069.png"></li>
+                
+                <!-- Repeat the sequence for seamless transition -->
+                <li><img src="./assets/img/company/c047.png"></li>
+                <li><img src="./assets/img/company/c048.png"></li>
+                <li><img src="./assets/img/company/c049.png"></li>
+                <li><img src="./assets/img/company/c050.png"></li>
+                <li><img src="./assets/img/company/c051.png"></li>
+                <li><img src="./assets/img/company/c052.png"></li>
+                <li><img src="./assets/img/company/c053.png"></li>
+                <li><img src="./assets/img/company/c054.png"></li>
+                <li><img src="./assets/img/company/c055.png"></li>
+                <li><img src="./assets/img/company/c056.png"></li>
+                <li><img src="./assets/img/company/c057.png"></li>
+                <li><img src="./assets/img/company/c058.png"></li>
+                <li><img src="./assets/img/company/c059.png"></li>
+                <li><img src="./assets/img/company/c060.png"></li>
+                <li><img src="./assets/img/company/c061.png"></li>
+                <li><img src="./assets/img/company/c062.png"></li>
+                <li><img src="./assets/img/company/c063.png"></li>
+                <li><img src="./assets/img/company/c064.png"></li>
+                <li><img src="./assets/img/company/c065.png"></li>
+                <li><img src="./assets/img/company/c066.png"></li>
+                <li><img src="./assets/img/company/c067.png"></li>
+                <li><img src="./assets/img/company/c068.png"></li>
+                <li><img src="./assets/img/company/c069.png"></li>
+            </ul>
+        </div>
+        
+        <!-- Second row (reverse direction) -->
+        <div class="rolling-list reverse">
+            <ul>
+                <li><img src="./assets/img/company/c070.png"></li>
+                <li><img src="./assets/img/company/c071.png"></li>
+                <li><img src="./assets/img/company/c072.png"></li>
+                <li><img src="./assets/img/company/c073.png"></li>
+                <li><img src="./assets/img/company/c074.png"></li>
+                <li><img src="./assets/img/company/c075.png"></li>
+                <li><img src="./assets/img/company/c076.png"></li>
+                <li><img src="./assets/img/company/c077.png"></li>
+                <li><img src="./assets/img/company/c078.png"></li>
+                <li><img src="./assets/img/company/c079.png"></li>
+                <li><img src="./assets/img/company/c080.png"></li>
+                <li><img src="./assets/img/company/c081.png"></li>
+                <li><img src="./assets/img/company/c082.png"></li>
+                <li><img src="./assets/img/company/c083.png"></li>
+                <li><img src="./assets/img/company/c084.png"></li>
+                <li><img src="./assets/img/company/c085.png"></li>
+                <li><img src="./assets/img/company/c086.png"></li>
+                <li><img src="./assets/img/company/c087.png"></li>
+                <li><img src="./assets/img/company/c088.png"></li>
+                <li><img src="./assets/img/company/c089.png"></li>
+                <li><img src="./assets/img/company/c090.png"></li>
+                <li><img src="./assets/img/company/c091.png"></li>
+                <li><img src="./assets/img/company/c092.png"></li>
+                <!-- Repeat the sequence for seamless transition -->
+                <li><img src="./assets/img/company/c070.png"></li>
+                <li><img src="./assets/img/company/c071.png"></li>
+                <li><img src="./assets/img/company/c072.png"></li>
+                <li><img src="./assets/img/company/c073.png"></li>
+                <li><img src="./assets/img/company/c074.png"></li>
+                <li><img src="./assets/img/company/c075.png"></li>
+                <li><img src="./assets/img/company/c076.png"></li>
+                <li><img src="./assets/img/company/c077.png"></li>
+                <li><img src="./assets/img/company/c078.png"></li>
+                <li><img src="./assets/img/company/c079.png"></li>
+                <li><img src="./assets/img/company/c080.png"></li>
+                <li><img src="./assets/img/company/c081.png"></li>
+                <li><img src="./assets/img/company/c082.png"></li>
+                <li><img src="./assets/img/company/c083.png"></li>
+                <li><img src="./assets/img/company/c084.png"></li>
+                <li><img src="./assets/img/company/c085.png"></li>
+                <li><img src="./assets/img/company/c086.png"></li>
+                <li><img src="./assets/img/company/c087.png"></li>
+                <li><img src="./assets/img/company/c088.png"></li>
+                <li><img src="./assets/img/company/c089.png"></li>
+                <li><img src="./assets/img/company/c090.png"></li>
+                <li><img src="./assets/img/company/c091.png"></li>
+                <li><img src="./assets/img/company/c092.png"></li>
+            </ul>
+        </div>
+
+    </div>
+
+<!--///End : ICT Rolling Banner -->
+
+</body>
+</html>

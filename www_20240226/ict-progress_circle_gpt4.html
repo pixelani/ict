@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progress Circle Gpt4</title>
+    <link rel="stylesheet" href="./assets/css/ict-progress.css">
+</head>
+<body>
+    <div class="progress_bg">
+    <div class="card-container tt">
+        <!-- 첫 번째 카드 -->
+        <div class="card">
+            <div class="rating">
+                <h2><span class="counter" data-target="96">96</span><sub>%<br></sub></h2>
+                <div class="block"></div>
+            </div>
+            <div class="progress_title">
+                <b class="text">교육과정명:</b> <br>클라우드 환경과 자바 개발자 양성과정<br><br>
+                <b class="text2">교육기간:</b> <br>2022.12.20 - 2023.05.30
+            </div>
+        </div>
+
+        <!-- 두 번째 카드 -->
+        <div class="card">
+            <div class="rating">
+                <h2><span class="counter" data-target="91">91</span><sub>%<br></sub></h2>
+                <div class="block"></div>
+            </div>
+            <div class="progress_title">
+                <b class="text">교육과정명:</b> <br>데이터처리 기반 풀스텍 개발자 과정<br><br>
+                <b class="text2">교육기간:</b> 2022.11.29 - 2023.05.25
+            </div>
+        </div>
+
+        <!-- 세 번째 카드 -->
+        <div class="card">
+            <div class="rating">
+                <h2><span class="counter" data-target="91">91</span><sub>%<br></sub></h2>
+                <div class="block"></div>
+            </div>
+            <div class="progress_title">
+                <b class="text">교육과정명:</b> <br>웹기반 스마트 콘텐츠 응용 SW개발자 양성과정<br><br>
+                <b class="text2">교육기간:</b> <br> 2022.10.55 - 2023.04.18
+            </div>
+        </div>
+
+        <!-- 네 번째 카드 -->
+        <div class="card">
+            <div class="rating">
+                <h2><span class="counter" data-target="60">95</span><sub>%<br></sub></h2>
+                <div class="block"></div>
+            </div>
+            <div class="progress_title" style="text-align: center;">
+                <b class="text3">평균 취업율</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        document.querySelectorAll('.card').forEach((card) => {
+            const target = parseInt(card.querySelector('.counter').getAttribute('data-target'), 10);
+    
+            // 배경 블록 생성
+            for (let i = 1; i < 100; i++) {
+                const block = document.createElement('div');
+                block.className = 'block';
+                block.style.transform = `rotate(${3.6 * i}deg)`;
+                card.querySelector('.rating').appendChild(block);
+            }
+    
+            // data-target 값에 따라 순차적으로 녹색 블록 표시
+            const blocks = card.querySelectorAll('.block');
+            blocks.forEach((block, index) => {
+                // 지연 시간을 설정하여 순차적으로 켜지도록 함
+                setTimeout(() => {
+                    if (index < target) {
+                        block.style.background = '#ffffff';
+                        block.style.boxShadow = '0 0 15px #010101, 0 0 5px #00cafd';
+                    }
+                }, index * 20); // 각 블록마다 50ms의 지연을 추가
+            });
+        });
+    </script>
+    
+
+    <!-- <script>
+        document.querySelectorAll('.card').forEach((card) => {
+            const target = parseInt(card.querySelector('.counter').getAttribute('data-target'), 10);
+    
+            // 배경 블록 생성
+            for (let i = 1; i < 100; i++) {
+                const block = document.createElement('div');
+                block.className = 'block';
+                block.style.transform = `rotate(${3.6 * i}deg)`;
+                card.querySelector('.rating').appendChild(block);
+            }
+    
+            // data-target 값에 따라 녹색 블록 표시
+            const blocks = card.querySelectorAll('.block');
+            blocks.forEach((block, index) => {
+                if (index < target) {
+                    block.style.background = 'greenyellow';
+                    block.style.boxShadow = '0 0 5px #0f0, 0 0 10px #00ff00';
+                } else {
+                    // 나머지 블록은 기본 배경색을 유지
+                    block.style.background = '#000';
+                    block.style.boxShadow = 'none';
+                }
+            });
+    
+            // 오류 수정: `data-target`이 100일 때 모든 블록이 녹색으로 변하도록 하고,
+            // `data-target`이 3과 같은 낮은 값일 때 정확한 수의 블록만 녹색으로 변하도록 함.
+            // 이전 로직에서는 target 값이 정확히 반영되지 않았을 수 있음.
+        });
+    </script>  -->
+    
+</body>
+</html>
