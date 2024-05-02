@@ -1,0 +1,520 @@
+@charset "utf-8";
+
+:root {
+	--min-width-page: 1280px;
+	--width-swipe-content: 384px;
+	
+	--margin-common: 24px;
+	--margin-bottom-last-section: 60px;
+	--padding-common-main: 44px;
+	--padding-common: 60px;
+	--padding-top-section: 140px;
+	--padding-bottom-content: 150px;
+	
+
+  --vivid-red: #f53d65;
+  --vivid-orange: #fb9605;
+  --vivid-gold: #f5cf1d;
+  --vivid-green: #2cd27e;
+  --vivid-mint: #12b0bb;
+  --vivid-purple: #d678f6; 
+  --vivid-blue: #1a8be7;
+
+
+
+
+  /* Point Color */
+  --color-ict-0:  rgba(255, 61, 0, 0); 		/* #FF3D00 의 투명도 0 */
+  --color-ict-8:  rgba(255, 61, 0, 0.08); 	/* #FF3D00 의 투명도 8 */
+  --color-ict-50: rgba(255, 61, 0, 0.5); 	/* #FF3D00 의 투명도 90 */
+	--color-ict-90: rgba(255, 61, 0, 0.9); 	/* #FF3D00 의 투명도 90 */
+
+	--color-ict: 	rgba(255, 61, 0, 1); 		/* #fe4200 의 RGB값 */ 
+	--color-edu: 	rgba(17, 37, 118, 1); 		/* #112576 의 RGB값 */ 
+	--color-ict-s: 	rgb(255, 100, 50); 		/* #ff6432 의 RGB값 */ 
+	--color-edu-s: 	rgb(36, 61, 163); 			/* #243da3 의 RGB값 */ 
+	  
+	/* Main Color 2024.0327 */
+
+
+  /* Result color */
+
+  --color-res-a: #00154c;
+  --color-res-b: #0F138f;
+
+  
+  --bg-about: /* 소개 */
+  background-image: linear-gradient(0.25turn,var(--color-blue), var(--color-blue-s));
+  --bg-com: /* 커뮤니티 */
+  background-image: linear-gradient(0.25turn,var(--color-mint), var(--color-mint), var(--color-mint-s));
+  --bg-contact: /* 상담 */
+  background-image: linear-gradient(0.25turn,var(--color-naver), var(--color-naver));
+  --bg-em: /* 취업센터 */
+  background-image: linear-gradient(0.25turn,var(--color-gold),var(--color-gold-s) );
+  --bg-study: /* 취업과정 */
+  background-image: linear-gradient(0.25turn,var(--color-purple), var(--color-purple-s));
+  --bg-support: /* 고객센터 */
+  background-image: linear-gradient(0.25turn,var(--color-nate), var(--color-nate-s));
+
+  
+
+	
+  /* 인재개발원소개 */
+  /* 데이터처리 기반 자바 풀스택 개발자과정 */
+  	--color-blue: 	rgb(20, 67, 217);		/*#1443d9;*/
+	  --color-blue-s: 	rgb(70, 187, 255);		/*#00bbff;*/
+	
+
+	/* 취업과정 */
+	--color-purple: rgb(87, 52, 218);		/*#5734DA*/
+	--color-purple-s: 	rgb(104, 64, 255);		/*#6840ff*/
+
+
+	/* 커뮤니티 */
+	/* 클라우드 기반 AI대화형 서비스 웹개발자과정 */
+  --color-mint: 	rgb(0, 202, 175);		/*#00caaf;*/
+	--color-mint-s: 	rgb(116, 254, 235);		/*#74feeb;*/
+	
+
+	/* 취업지원센터 */ 
+	/* [디지털컨버전스]클라우드AWS기반 자바 SW융합 웹서비스 풀스택 실무과정 */
+  --color-gold: 	rgb(254, 191, 0);		/*#febf00;*/
+	--color-gold-s: 	rgb(255, 212, 42);		/*#ffd42a;*/
+  
+	
+	/* 상담센터 */
+  /* 지능형 도우미 서비스 융합 웹서비스 개발자과정 */
+	--color-naver: 	rgb(3, 199, 90);		/*#03c75a; Nav */
+	--color-naver-s:  	rgb(34, 236, 124);		/*#22ec7c; Naver-support */
+	
+  
+	/* 고객센터 */
+	--color-nate:	rgb(255, 44, 46);		/*#ff2c2e;*/
+	--color-nate-s:		rgb(255, 95, 97);		/*#ff5f61;*/
+
+  
+  /* 클라우드 기반 자바&스프링 개발자 과정 */
+	--color-pink: 	rgb(204, 100, 240);	/*#cc64f0;*/
+	--color-pink-s: 	rgb(232, 172, 255);	/*#e8acff;*/
+
+
+
+
+	
+	/* Sub Color 2024.0327 */
+  --color-banana: #ffc600;
+	--color-aqua: 	#40ddc8;
+	--color-lime: 	#75EF75;
+	--color-violet: #a599fc;
+	--color-coral:	#FD8F82;
+  --color-nine: #aa9872; /* 지하철 9호선*/
+  --color-bundang: #990000; /* 신분당선 */
+
+
+
+	/* Black - Gray */
+	--color-black: #222222;
+	--color-dark:  #444444;
+	--color-gray1: #666666;
+	--color-gray2: #999999;
+	--color-silver: rgb(221, 221, 221);	/*#DDDDDD;*/
+	--color-light: rgba(238, 238, 241, 1);/*#eeeef1;*/
+	--color-white: rgba(255, 255, 255, 1);/*#ffffff;*/
+	--color-white-50: rgba(255, 255, 255, 0.5);/*#ffffff;*/
+	--color-white-80: rgba(255, 255, 255, 0.8);/*#ffffff;*/
+	--color-white-90: rgba(255, 255, 255, 0.9);/*#ffffff;*/
+
+	/* Valiable Pastel Color */
+	--color-val01: #ffcd9a;
+	--color-val02: #75adfa;
+	--color-val03: #9f7bff;
+	--color-val04: #03c75a;
+	--color-val05: #e3c0f8;
+	--color-val06: #e9bacd;
+	
+	
+	
+
+
+	--color-blue2:	#2750dc;
+	--color-blue3:	#1443d9;
+	--color-red:	#ec1313;
+	
+	--color-bg-gray: 	 #f1f3f8;
+	--color-table-gray:  #f2f5f9;
+	--color-border-gray: #dae0e9;
+	
+	--font-size-sectiontitle: 40px; /* 700 */
+	--font-size-contenttitle: 26px; /* 500 */
+	--font-size-contentsubtitle: 20px; /* 500 */
+	--font-size-content: 16px; /* 400 */
+	--font-size-content2: 18px; /*  */
+
+	--font-weight-100: 100;
+	--font-weight-200: 200;
+	--font-weight-300: 300;
+	--font-weight-400: 400;
+	--font-weight-500: 500;
+	--font-weight-600: 600;
+	--font-weight-700: 700;
+
+
+  /* ********************************************* */
+
+
+
+    
+    /* ICT MAIN-Blue Color */
+    --im50:#98e1fc;
+    --im100:#85dbfe;
+    --im200:#6ad2ff;
+    --im300:#48c8ff;
+    --im400:#19bcff;
+    --im500:#00affa;
+    --im600:#009fee;
+    --im700:#008edf;
+    --im800:#0080d3;
+    --im900:#0078cc; /*  지정색   */
+
+    
+    /* ICT MAIN-Purple Color */
+    --ip50:#f3d7fd;
+    --ip100:#efc5fe;
+    --ip200:#ebafff;
+    --ip300:#e393fe;
+    --ip400:#d678f6;
+    --ip500:#be63ef;
+    --ip600:#a055ea;
+    --ip700:#8149e6;
+    --ip800:#673ee2;
+    --ip900:#5734da; /*  지정색   */
+
+
+
+    /* ICT SUB(POINT & Success) Color */
+    --is50: #FFF3E0;
+    --is100: #FFE0B2;
+    --is200: #FFCC80;
+    --is300: #FFB74D;
+    --is400: #FFA726;
+    --is500: #FF9800; /*  기본색   */
+    --is600: #FB8C00;
+    --is700: #F57C00;
+    --is800: #EF6C00;
+    --is900: #E65100; /*  지정색   */
+
+
+    /* ICT WARNING Color */
+    --iw50: #FBE9E7;
+    --iw100: #FFAB91;
+    --iw200: #FF8A65;
+    --iw300: #FF7043;
+    --iw400: #FF5722;
+    --iw500: #FF5722; /*  지정색   */
+    --iw600: #F4511E;
+    --iw700: #E64A19;
+    --iw800: #D84315;
+    --iw900: #BF360C;
+
+
+    /* ICT SUBcolor NAVER */
+    --isn50: #E7F6EB;
+    --isn100: #C2E8CD;
+    --isn200: #9BD8AD;
+    --isn300: #70CA8C;    
+    --isn400: #4DBE74;
+    --isn500: #22B25D; /*  지정색   */  
+    --isn600: #18A352;
+    --isn700: #089146;
+    --isn800: #00803B;
+    --isn900: #006027;
+    
+    
+    /* ICT SUBcolor MINT */
+    --ism50: #d3f9f4;
+    --ism100: #bcf7ed;
+    --ism200: #9af4e5;
+    --ism300: #6ff0db;
+    --ism400: #3de9d1;
+    --ism500: #1ce0c7; /*  기본색   */
+    --ism600: #00d5bc;
+    --ism700: #00c9b1;
+    --ism800: #0cbea7;
+    --ism900: #13b8a2; /*  지정색   */
+    
+    
+    --font-family-sans-serif: "pretendard", "Roboto", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .btn {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn_hover {
+    position: relative;
+    background-position: right center;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    bottom: 5px;
+    height: 60px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 5px;
+}
+
+.btn_hover:hover {
+  bottom: 0px;
+    background-position: 0 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn_hover:focus {
+    outline: none;
+}
+
+
+
+
+.bg_color_blue {
+    background-image: linear-gradient(to left,var(--color-blue), var(--color-blue-s),var(--ism800),var(--im800));
+    box-shadow: 0 4px 5px 0 var(--color-blue);
+}
+
+.bg_color_mint { 
+    background-image: linear-gradient(to left,var(--color-mint),var(--ism100), var(--color-mint), var(--color-mint-s));
+    box-shadow: 0 4px 5px 0 var(--color-mint);
+}
+
+.bg_color_naver {
+    background-image: linear-gradient(to right,var(--color-naver),var(--isn200), var(--color-naver),var(--isn400));
+    box-shadow: 0 4px 5px 0 var(--color-naver);
+}
+.bg_color_gold {
+    background-image: linear-gradient(to right,var(--color-gold),var(--is50),var(--color-gold-s),var(--color-banana) );
+    box-shadow: 0 4px 5px 0 var(--color-gold);
+}
+.bg_color_purple {
+    background-image: linear-gradient(to right,var(--color-purple), var(--color-purple-s),var(--ip100),var(--ip500));
+    box-shadow: 0 4px 5px 0 var(--color-purple);
+}
+.bg_color_nate {
+    background-image: linear-gradient(to right,var(--color-nate),var(--iw200), var(--color-nate-s),var(--iw300));
+    box-shadow: 0 4px 5px 0 var(--color-nate);
+}
+.bg_color_orange {
+  color: var(--color-white);
+  background-image: linear-gradient(to right, var(--color-ict),var(--color-gold),var(--color-ict), var(--is600));
+  box-shadow: 0 4px 5px 0 var(--is800);  
+} 
+
+.bg_color_c1 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 5px 0 rgba(126, 52, 161, 0.75);
+}
+.bg_color_c2 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 5px 0 rgba(45, 54, 65, 0.75);
+}
+.bg_color_c3 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 5px 0 rgba(65, 132, 234, 0.75);
+}
+.bg_color_c4 {
+    background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 5px 0 rgba(236, 116, 149, 0.75);
+}
+.bg_color_c5 {
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  
+    box-shadow: 0 5px 5px #e2373f;
+}
+
+
+
+
+.bg_vivid_title{
+background-image: linear-gradient(to right,var(--color-dark), var(--color-black));
+box-shadow: 0 4px 5px 0 var(--color-dark);}
+
+.bg_vivid_blue{  
+background-image: linear-gradient(to right, var(--vivid-blue), var(--im50), var(--im400),var(--im800));
+box-shadow: 0 4px 5px 0 var(--color-blue);}
+
+.bg_vivid_red{  
+background-image: linear-gradient(to right, var(--vivid-red), var(--iw200),var(--iw400),#e14e53);
+box-shadow: 0 4px 5px 0 var(--vivid-red);}
+.bg_vivid_gold{  
+background-image: linear-gradient(to right, var(--vivid-gold), var(--is100),var(--color-banana),var(--is300));
+box-shadow: 0 4px 5px 0 var(--vivid-gold);}
+.bg_vivid_green{  
+background-image: linear-gradient(to right,var(--vivid-green), var(--isn200),var(--isn400),var(--isn700));
+box-shadow: 0 4px 5px 0 var(--vivid-green);}
+.bg_vivid_mint{  
+background-image: linear-gradient(to right,var(--vivid-mint), var(--ism200),var(--ism500),var(--color-mint-s));
+box-shadow: 0 4px 5px 0 var(--vivid-mint);}
+.bg_vivid_purple{  
+background-image: linear-gradient(to right,var(--vivid-purple), var(--ip100),var(--ip200),var(--ip600));
+box-shadow: 0 4px 5px 0 var(--ip700);}
+
+.bg_vivid_orange{  
+  background-image: linear-gradient(to right,var(--color-ict), var(--color-ict-s),var(--is600),var(--is900));
+  box-shadow: 0 4px 5px 0 var(--color-ict-s);}
+  
+  /* Main color - Blue */
+  .im50     { color:  var(--im50) }
+  .im100    { color:  var(--im100) }
+  .im200    { color:  var(--im200) }
+  .im300    { color:  var(--im300) }
+  .im400    { color:  var(--im400) }
+  .im500    { color:  var(--im500) }
+  .im600    { color:  var(--im600) }
+  .im700    { color:  var(--im700) }
+  .im800    { color:  var(--im800) }
+  .im900    { color:  var(--im900) } /***** 지정색 ******/
+
+  .imb50     { background-color:  var(--im50) }
+  .imb100    { background-color:  var(--im100) }
+  .imb200    { background-color:  var(--im200) }
+  .imb300    { background-color:  var(--im300) }
+  .imb400    { background-color:  var(--im400) }
+  .imb500    { background-color:  var(--im500) }
+  .imb600    { background-color:  var(--im600) }
+  .imb700    { background-color:  var(--im700) }
+  .imb800    { background-color:  var(--im800) }
+  .imb900    { background-color:  var(--im900) } /***** 지정색 ******/
+
+
+
+
+  /* Main color - Purple */
+  .ip50     { color:  var(--ip50) }
+  .ip100    { color:  var(--ip100) }
+  .ip200    { color:  var(--ip200) }
+  .ip300    { color:  var(--ip300) }
+  .ip400    { color:  var(--ip400) }
+  .ip500    { color:  var(--ip500) }/***** 보조색 ******/
+  .ip600    { color:  var(--ip600) }
+  .ip700    { color:  var(--ip700) }
+  .ip800    { color:  var(--ip800) }
+  .ip900    { color:  var(--ip900) }/***** 지정색 ******/
+  /* Point color Background */
+  .ipb50     { background-color:  var(--ip50) }
+  .ipb100    { background-color:  var(--ip100) }
+  .ipb200    { background-color:  var(--ip200) }
+  .ipb300    { background-color:  var(--ip300) }
+  .ipb400    { background-color:  var(--ip400) }
+  .ipb500    { background-color:  var(--ip500) }/***** 보조색 ******/
+  .ipb600    { background-color:  var(--ip600) }
+  .ipb700    { background-color:  var(--ip700) }
+  .ipb800    { background-color:  var(--ip800) }
+  .ipb900    { background-color:  var(--ip900) }/***** 지정색 ******/
+
+
+
+
+
+  /* Sub / Point / Success Color - Orange */
+  .is50     { color:  var(--is50) }
+  .is100    { color:  var(--is100) }
+  .is200    { color:  var(--is200) }
+  .is300    { color:  var(--is300) }
+  .is400    { color:  var(--is400) }
+  .is500    { color:  var(--is500) }/***** 보조색 ******/
+  .is600    { color:  var(--is600) }
+  .is700    { color:  var(--is700) }
+  .is800    { color:  var(--is800) }
+  .is900    { color:  var(--is900) }/***** 지정색 ******/
+  /* Point color Background */
+  .isb50     { background-color:  var(--is50) }
+  .isb100    { background-color:  var(--is100) }
+  .isb200    { background-color:  var(--is200) }
+  .isb300    { background-color:  var(--is300) }
+  .isb400    { background-color:  var(--is400) }
+  .isb500    { background-color:  var(--is500) }/***** 보조색 ******/
+  .isb600    { background-color:  var(--is600) }
+  .isb700    { background-color:  var(--is700) }
+  .isb800    { background-color:  var(--is800) }
+  .isb900    { background-color:  var(--is900) }/***** 지정색 ******/
+
+
+  /* Warning / 경고 / 에러 - red */
+  .iw50     { color:  var(--iw50) }
+  .iw100    { color:  var(--iw100) }
+  .iw200    { color:  var(--iw200) }
+  .iw300    { color:  var(--iw300) }
+  .iw400    { color:  var(--iw400) }
+  .iw500    { color:  var(--iw500) }/***** 보조색 ******/
+  .iw600    { color:  var(--iw600) }
+  .iw700    { color:  var(--iw700) }
+  .iw800    { color:  var(--iw800) }
+  .iw900    { color:  var(--iw900) }/***** 지정색 ******/
+  /* Point color Background */
+  .iwb50     { background-color:  var(--iw50) }
+  .iwb100    { background-color:  var(--iw100) }
+  .iwb200    { background-color:  var(--iw200) }
+  .iwb300    { background-color:  var(--iw300) }
+  .iwb400    { background-color:  var(--iw400) }
+  .iwb500    { background-color:  var(--iw500) }/***** 보조색 ******/
+  .iwb600    { background-color:  var(--iw600) }
+  .iwb700    { background-color:  var(--iw700) }
+  .iwb800    { background-color:  var(--iw800) }
+  .iwb900    { background-color:  var(--iw900) }/***** 지정색 ******/
+
+
+
+  /* SubColor Naver */
+  .isn50     { color:  var(--isn50) }
+  .isn100    { color:  var(--isn100) }
+  .isn200    { color:  var(--isn200) }
+  .isn300    { color:  var(--isn300) }
+  .isn400    { color:  var(--isn400) }
+  .isn500    { color:  var(--isn500) }/***** 보조색 ******/
+  .isn600    { color:  var(--isn600) }
+  .isn700    { color:  var(--isn700) }
+  .isn800    { color:  var(--isn800) }
+  .isn900    { color:  var(--isn900) }/***** 지정색 ******/
+  /* SubColor Naver  Background */
+  .isnb50     { background-color:  var(--isn50) }
+  .isnb100    { background-color:  var(--isn100) }
+  .isnb200    { background-color:  var(--isn200) }
+  .isnb300    { background-color:  var(--isn300) }
+  .isnb400    { background-color:  var(--isn400) }
+  .isnb500    { background-color:  var(--isn500) }/***** 보조색 ******/
+  .isnb600    { background-color:  var(--isn600) }
+  .isnb700    { background-color:  var(--isn700) }
+  .isnb800    { background-color:  var(--isn800) }
+  .isnb900    { background-color:  var(--isn900) }/***** 지정색 ******/
+
+
+  /* SubColor Mint */
+  .ism50     { color:  var(--ism50) }
+  .ism100    { color:  var(--ism100) }
+  .ism200    { color:  var(--ism200) }
+  .ism300    { color:  var(--ism300) }
+  .ism400    { color:  var(--ism400) }
+  .ism500    { color:  var(--ism500) }/***** 보조색 ******/
+  .ism600    { color:  var(--ism600) }
+  .ism700    { color:  var(--ism700) }
+  .ism800    { color:  var(--ism800) }
+  .ism900    { color:  var(--ism900) }/***** 지정색 ******/
+  /* SubColor Naver  Background */
+  .ismb50     { background-color:  var(--ism50) }
+  .ismb100    { background-color:  var(--ism100) }
+  .ismb200    { background-color:  var(--ism200) }
+  .ismb300    { background-color:  var(--ism300) }
+  .ismb400    { background-color:  var(--ism400) }
+  .ismb500    { background-color:  var(--ism500) }/***** 보조색 ******/
+  .ismb600    { background-color:  var(--ism600) }
+  .ismb700    { background-color:  var(--ism700) }
+  .ismb800    { background-color:  var(--ism800) }
+  .ismb900    { background-color:  var(--ism900) }/***** 지정색 ******/
+

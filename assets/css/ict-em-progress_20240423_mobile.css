@@ -1,0 +1,14 @@
+.progress_bg{ display: flex; justify-content: center; align-items: center; width: 100%; height: 300px; }
+.card-container { padding: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+.card, .card_m { position: relative; width: 200px; height: 220px; padding-top: 100px; margin: 10px; bottom: 0px; }
+.progress_title, .progress_title_m { 
+    font-family: 'Pretendard700'; font-size: 14px; color: var(--color-light); text-align: center;  line-height: 1.4; border-radius: 10px; padding: 10px; width: 200px; height: 65px; position: relative; top: 100px;  left: 20px; }
+.progress_title .text, .progress_title_m .text_m { position: relative; font-size: 15px;  }
+
+.card .rating, .card_m .rating { position: relative; width: 100%; height: 100%; }
+.rating h2, .rating h3 { position: absolute; top: 85%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 1.4em; font-weight: 700; text-align: center; }
+
+.card .rating .block, .card_m .rating .block { 
+    position: absolute; width: 8px; height: 15px; background: var(--color-black); left: 50%; transform-origin: 50% 100px; opacity: 1;}
+
+    
