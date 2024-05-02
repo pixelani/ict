@@ -1,0 +1,209 @@
+/* size */
+.f8 {font-size: 8px;}
+.f10 {font-size: 10px;}
+.f11 {font-size: 11px;}
+.f12 {font-size: 12px;}
+.f13 {font-size: 13px;}
+.f14 {font-size: 14px;}
+.f15 {font-size: 15px;}
+.f16 {font-size: 16px;}
+.f17 {font-size: 17px;}
+.f18 {font-size: 18px;}
+.f19 {font-size: 19px;}
+.f20 {font-size: 20px;}
+.f24 {font-size: 24px;}
+.f26 {font-size: 26px;}
+.f28 {font-size: 28px;}
+.f30 {font-size: 30px;}
+.f36 {font-size: 36px;}
+.f40 {font-size: 40px;}
+
+.f100 {font-weight: 100;}
+.f200 {font-weight: 200;}
+.f300 {font-weight: 300;}
+.f400 {font-weight: 400;}
+.f500 {font-weight: 500;}
+.f600 {font-weight: 600;}
+.f700 {font-weight: 700;}
+.f800 {font-weight: 800;}
+.f900 {font-weight: 900;}
+
+/* font color */
+.f_ict {color: var(--color-ict);}
+.f_blue {color: var(--vivid-blue);}
+.f_orange {color: var(--vivid-orange);}
+.f_gold {color: var(--vivid-gold);}
+.f_red {color: var(--vivid-red);}
+.f_mint {color: var(--vivid-mint);}
+.f_purple {color: var(--vivid-purple);}
+.f_dark {color: var(--color-dark);}
+.f_black {color: var(--color-black);}
+.f_silver {color: var(--color-silver);}
+.f_gray1 {color: var(--color-gray1);}
+.f_white {color: var(--color-white);}
+.f_naver {color: var(--color-naver);}
+.f_nine {color: var(--color-nine);} /* 지하철 9호선 */
+.f_bundang {color: var(--color-bundang);} /* 신분당선*/
+
+
+/* Pretendard */
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: local('Pretendard'), url('/assets/fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Pretendard100';
+  src: url('/assets/fonts/Pretendard-Thin.woff') format('woff');
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard200';
+  src: url('/assets/fonts/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard300';
+  src: url('/assets/fonts/Pretendard-Light.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard400';
+  src: url('/assets/fonts/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard500';
+  src: url('/assets/fonts/Pretendard-Medium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard600';
+  src: url('/assets/fonts/Pretendard-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard700';
+  src: url('/assets/fonts/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard800';
+  src: url('/assets/fonts/Pretendard-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard900';
+  src: url('/assets/fonts/Pretendard-Black.woff') format('woff');
+  font-weight: 900;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Noto_BK';
+    src: url('/assets/fonts/NotoSansCJKkr-Black.eot');
+    src: url('/assets/fonts/NotoSansCJKkr-Blackd41d.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NotoSansCJKkr-Black.ttf') format('truetype'),
+    url('/assets/fonts/NotoSansCJKkr-Black.woff') format('woff'),
+    url('/assets/fonts/NotoSansCJKkr-Black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto_BL';
+    src: url('/assets/fonts/NotoSansCJKkr-Bold.eot');
+    src: url('/assets/fonts/NotoSansCJKkr-Boldd41d.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NotoSansCJKkr-Bold.ttf') format('truetype'),
+    url('/assets/fonts/NotoSansCJKkr-Bold.woff') format('woff'),
+    url('/assets/fonts/NotoSansCJKkr-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto_DL';
+    src: url('/assets/fonts/NotoSansCJKkr-DemiLight.eot');
+    src: url('/assets/fonts/NotoSansCJKkr-DemiLightd41d.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NotoSansCJKkr-DemiLight.ttf') format('truetype'),
+    url('/assets/fonts/NotoSansCJKkr-DemiLight.woff') format('woff'),
+    url('/assets/fonts/NotoSansCJKkr-DemiLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto_LT';
+    src: url('/assets/fonts/NotoSansCJKkr-Light.eot');
+    src: url('/assets/fonts/NotoSansCJKkr-Lightd41d.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NotoSansCJKkr-Light.ttf') format('truetype'),
+    url('/assets/fonts/NotoSansCJKkr-Light.woff') format('woff'),
+    url('/assets/fonts/NotoSansCJKkr-Light.otf') format('opentype');
+}  
+
+@font-face {
+  font-family: 'Noto_MD';
+  src: url('/assets/fonts/NotoSansCJKkr-Medium.eot');
+src: url('/assets/fonts/NotoSansCJKkr-Mediumd41d.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NotoSansCJKkr-Medium.ttf') format('truetype'),
+    url('/assets/fonts/NotoSansCJKkr-Medium.woff') format('woff'),
+    url('/assets/fonts/NotoSansCJKkr-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto_RG';
+  src: url('/assets/fonts/NotoSansCJKkr-Regular.eot');
+    src: url('/assets/fonts/NotoSansCJKkr-Regulard41d.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/NotoSansCJKkr-Regular.ttf') format('truetype'),
+    url('/assets/fonts/NotoSansCJKkr-Regular.woff') format('woff'),
+    url('/assets/fonts/NotoSansCJKkr-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto_TH';
+  src: url('/assets/fonts/NotoSansCJKkr-Thin.eot');
+  src: url('/assets/fonts/NotoSansCJKkr-Thind41d.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/NotoSansCJKkr-Thin.ttf') format('truetype'),
+  url('/assets/fonts/NotoSansCJKkr-Thin.woff') format('woff'),
+  url('/assets/fonts/NotoSansCJKkr-Thin.otf') format('opentype');
+}
+
+@font-face {
+font-family: 'GmarketSansMedium';
+src: url('/assets/fonts/GmarketSansMedium.eot');
+src: url('/assets/fonts/GmarketSansMediumd41d.eot?#iefix') format('embedded-opentype'),
+     url('/assets/fonts/GmarketSansMedium.ttf') format('truetype'),
+     url('/assets/fonts/GmarketSansMedium.woff') format('woff'),
+     url('/assets/fonts/GmarketSansMedium.otf') format('opentype');
+}
+
+@font-face {
+font-family: 'GmarketSansLight';
+src: url('/assets/fonts/GmarketSansLight.eot');
+src: url('/assets/fonts/GmarketSansLightd41d.eot?#iefix') format('embedded-opentype'),
+     url('/assets/fonts/GmarketSansLight.ttf') format('truetype'),
+     url('/assets/fonts/GmarketSansLight.woff') format('woff'),
+     url('/assets/fonts/GmarketSansLight.otf') format('opentype');
+}
+
+@font-face {
+font-family: 'GmarketSansBold';
+src: url('/assets/fonts/GmarketSansBold.eot');
+src: url('/assets/fonts/GmarketSansBoldd41d.eot?#iefix') format('embedded-opentype'),
+     url('/assets/fonts/GmarketSansBold.ttf') format('truetype'),
+     url('/assets/fonts/GmarketSansBold.woff') format('woff'),
+     url('/assets/fonts/GmarketSansBold.otf') format('opentype');
+}
+
+@font-face {
+font-family: 'RixBusanStationPH';
+src: url('/assets/fonts/RixBusanStationPH.eot'),
+   url('/assets/fonts/RixBusanStationPH.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
