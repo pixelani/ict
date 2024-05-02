@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+
+
+<title>한국ICT인재개발원</title>
+  <!-- Bootstrap Custom 3.4.0 2024.04.01 -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.3.4.0_custum.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	<!-- js -->
+	<script type="text/javascript" src="/assets/js/bootstrap.5.3.2.bundle.min.js"></script>
+  <script type="text/javascript" src="/assets/js/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.waypoints.min.js"></script>
+  <script type="text/javascript" src="/assets/js/jquery-migrate.min.1.2.1.js"></script> 
+	<script type="text/javascript" src="/assets/js/plugin.min.js"></script>
+	<script type="text/javascript" src="/assets/js/sub_page.js"></script>
+
+
+  <!-- SUBPAGE -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/subpage_20240427.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+
+
+
+  <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+
+
+  <link rel="preload" href="/_header_20240427.html" as="fetch">
+  <link rel="preload" href="/_footer_20240427.html" as="fetch">
+  <script type="text/javascript" src="/assets/js/sub_page.js"></script>
+
+</head>
+
+
+
+
+
+
+
+
+
+<!-- Include HTML Script -->
+<script>
+	  
+  window.addEventListener('load', function() {
+	  var allElements = document.getElementsByTagName('*');
+	  Array.prototype.forEach.call(allElements, function(el) {
+		  var includePath = el.dataset.includePath;
+		  if (includePath) {
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function () {
+				  if (this.readyState == 4 && this.status == 200) {
+					  el.outerHTML = this.responseText;
+				  }
+			  };
+			  xhttp.open('GET', includePath, true);
+			  xhttp.send();
+		  }
+	  });
+  });
+
+</script>
+<!-- // End : Include HTML Script -->
+
+
+<!-- incrude Html -->
+<div data-include-path="/_header_20240427.html"></div>
+<!-- // End : incrude Html -->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ************* Subpage ************* -->
+  <div id="subpage">
+  
+
+    <!-- Main Contents -->
+    <div class="sub_title_em"><div class="sub_title_img"><img src="/assets/img/page/sub_title_em.png" height="350px"></div></div>
+    <div class="sub_title"><h3>구인 구직</h3></div>
+    <div class="sub_subtitle"></div>
+    <div class="main_contents">
+    <div class="job">
+
+
+        <div class="tbl_line"> 
+          <span class="f20 tbl_left"><b>회사정보</b></span>
+          <span class="f20 tbl_right"><span class="essential">[</span>] 표시는 필수 입력사항입니다
+          </span>
+        </div>
+
+
+        <div class="table" style="border:none;">
+            <div id="table"> 
+
+                <ul> 
+                    <li class="th th_0"><b class="contact_on">사업자번호</b></li>
+                    <li class="td td_0"><input type="text" name="b_number1" class="input5" maxlength="5" style="width:60px;" /> -
+                        <input type="text" name="b_number2" class="input5" maxlength="5" style="width:60px;" value="" onkeyup="keyup_chk();" /> -
+                        <input type="text" name="b_number3" class="input5" maxlength="5" style="width:60px;" value="" onkeyup="keyup_chk();" />
+                        <button class="ict_btn ict_btn_set btn-14" value=""><span>확인</span></button>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b class="contact_on">업체명</b></li>
+                    <li class="td td_0"><input type="text" name="name" class="input5 name"/></li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b>채용담당자</b></li>
+                    <li class="td td_0"><input type="text" name="manager" id="manager" class="input5" value="" /></li>
+                    <li class="th th_1"><b>직위</b></li>
+                    <li class="td td_1"><input type="text" name="position" id="position" class="input5" value="" /></li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b>대표번호</b></li>
+                    <li class="td td_0"><input type="text" name="phone" id="phone" class="input5" value="" /></li>
+                    <li class="th th_1"><b>휴대폰</b></li>
+                    <li class="td td_1"><input type="text" name="cell" id="cell" class="input5" value="" /></li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b class="contact_on">이메일</b></li>
+                    <li class="td td_0"><input type="text" name="email" id="email" class="input5" value="" /></li>
+                    <li class="th th_1"><b>홈페이지</b></li>
+                    <li class="td td_1"><input type="text" name="homepage" id="homepage" class="input5" value="" /></li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b>주소</b></li>
+                    <li class="td td_0"><input type="text" name="address" id="address" class="input5" value=""size="50" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="table"> 
+            <div style="border-top: 1px solid var(--color-silver); margin-top: 50px; margin-bottom: 50px; margin-bottom: 1px solid var(--color-ict);"> 
+                <ul>
+                    <li class="th th_0" style="color: var(--color-dark); font-weight: 700; padding: 20px 0px;">
+                        <input type="checkbox" checked
+                        style="width: 20px; height: 20px; color: var(--color-ict); 
+                        position: relative; top: 4px;"/> 구인정보 작성</li> 
+                </ul>
+                
+            </div>
+        </div>
+
+
+        <div class="table"> 
+           
+		 
+            
+                <ul>
+                    <li class="th th_0"><b>근무지</b></li>
+                    <li class="td td_0"><input type="text" name="dn_location" class="input5 dn_not" readonly disabled></li>
+                    <li class="th th_1"><b>담당업무</b></li>
+                    <li class="td td_1"><input type="text" name="dn_job" class="input5 dn_not" readonly disabled></li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b>모집분야</b></li> 
+                    <li class="td td_0"><input type="text" name="dn_part" class="input5 dn_not" readonly disabled></li>
+                    <li class="th th_1"><b>요구기술</b></li>
+                    <li class="td td_1"><input type="text" name="dn_skill" class="input5 dn_not" readonly disabled /></li>
+                </ul>
+
+          
+                <ul>
+                    <li class="th_0" style="width: 12%; text-align: right;"><b>성별</b></li>
+                    <li class="td td_0">
+                        <span for="dn_bbb1" class="dn_not" style="margin-right: 20px; margin-top: 18px;"><input type="radio" id="dn_bbb1" name="dn_gender" disabled><b> 남</b></span>
+                        <span for="dn_bbb2" class="dn_not" style="margin-right: 20px; padding-top: 8px;"><input type="radio" id="dn_bbb2" name="dn_gender" disabled><b> 여</b></span>
+                        <span for="dn_bbb3" class="dn_not"><input type="radio" id="dn_bbb3" name="dn_gender" disabled><b> 구분없음</b></span>
+                        </li>
+                    <li class="th th_1"><b>연령</b></li>
+                    <li class="td td_1"><input type="text" name="dn_age"  
+                        style="width:100px;" class="input5 dn_not" readonly disabled> &nbsp; ~ &nbsp;
+                        <input type="text" name="dn_age1" 
+                        style="width:100px;" class="input5 dn_not" readonly disabled> &nbsp; 세
+                    </li>
+                </ul>
+
+             <ul>
+                <li class="th th_0 nth"><b>학력</b></li>
+                <li class='td td_0_b'>
+                    <select name="dn_graduate" class="input5 dn_not">
+                        <option value="op1">고졸</option>
+                        <option value="op2">전문대졸</option>
+                        <option value="op3">대졸</option>
+                        <option value="op4">대학원졸</option>
+                        <option value="op5" selected>구분없음</option>
+                    </select>
+                </li>
+                <li class="th th_1"><b>연봉</b></li>
+                <li class="td td_1">
+                    <input type="text" name="dn_salary" class="input5 dn_not" size="5"
+                        style="width:100px;" readonly disabled>&nbsp;&nbsp;만원
+                </li>
+             </ul>
+                <ul>
+                    <li class="th th_0"><b>채용인원</b></li>
+                    <li class="td td_0"><input type="text" name="dn_people" class="input5 dn_not" readonly disabled></li>
+                    <li class="th th_1"><b>경 력</b></li>
+                    <li class="td td_1">
+                        <input type="text" name="dn_exp" class="input5 dn_not" style="width: 100px;"
+                            readonly disabled>&nbsp;&nbsp;년
+                    </li>
+                </ul>
+                <ul>
+                    <li class="th th_0"><b>필요서류</b></li>
+                    <li class="td id_0"><input type="text" name="dn_doc" class="input5 dn_not" readonly disabled></li>
+                    <li class="th th_1"><b>채용마감일</b></li>
+                    <li class="td td_1">
+                        <input type="text" name="dn_close" class="input5 dn_not" style="width:250px;" readonly disabled>
+                        <button class="ict_btn ict_btn_set btn-14"><span>달력찾기</span></button>
+                    </li>
+                </ul>
+
+         
+        </div>
+
+
+
+
+        <!-- 개인정보 동의 -->
+        <div class="center" style="margin-bottom: 70px; margin-top: 50px;">
+            <a href="agree.php" target="_blank">
+            <i class="fa fa-check"></i>개인정보 보호를 위한 이용자 동의사항</a>
+            <div>
+            <input type="checkbox" name=agree value="1" id="agree" class="md-check">
+            <label for="agree">위 개인정보취급방침에 동의합니다.</label>
+            </div>
+        </div>
+        <!--// End : 개인정보 동의 -->
+        
+  
+      </div>
+      <!-- // main contents -->
+
+      <!-- ********************************************************************** -->
+
+
+
+<script>
+
+
+  jQuery(document).ready(function () {
+
+      jQuery('#regForm1').submit(function (e) {
+          for (content in CKEDITOR.instances) {
+              CKEDITOR.instances[content].updateElement();
+          }
+          register1();
+          e.preventDefault();
+
+      });
+
+  });
+
+
+
+  function register1() {
+      hideshow('loading', 1);
+      error(0);
+
+      jQuery.ajax({
+          type: "POST",
+          url: "company_submit.php",
+          data: $('#regForm1').serialize(),
+          // data: dataString,  
+          dataType: "json",
+          success: function (msg) {
+
+              if (parseInt(msg.status) == 1) {
+                  parent.location.reload(true);
+              }
+              else if (parseInt(msg.status) == 0) {
+                  error(1, msg.txt);
+              }
+
+
+              else if (parseInt(msg.status) == 3) {
+                  window.location = msg.txt;
+              }
+
+
+
+
+
+              hideshow('loading', 0);
+          }
+      });
+
+  }
+
+
+  function hideshow(el, act) {
+      if (act) jQuery('#' + el).css('visibility', 'visible');
+      else jQuery('#' + el).css('visibility', 'hidden');
+  }
+
+
+
+</script>
+
+
+
+    
+</div>
+</div>
+<!-- ********* End : # Main ********** -->
+ 
+<!-- ************************** Footer ************************************-->
+<!-- incrude Html -->
+	<!-- Head -->
+	<div data-include-path="/_footer_20240427.html"></div>
+<!-- // End : incrude Html -->
+
+
+
+</body>
+</html>
+

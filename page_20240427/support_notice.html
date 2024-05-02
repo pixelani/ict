@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+
+
+<title>한국ICT인재개발원</title>
+  <!-- Bootstrap Custom 3.4.0 2024.04.01 -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.3.4.0_custum.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	<!-- js -->
+	<script type="text/javascript" src="/assets/js/bootstrap.5.3.2.bundle.min.js"></script>
+  <script type="text/javascript" src="/assets/js/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.waypoints.min.js"></script>
+  <script type="text/javascript" src="/assets/js/jquery-migrate.min.1.2.1.js"></script> 
+	<script type="text/javascript" src="/assets/js/plugin.min.js"></script>
+	<script type="text/javascript" src="/assets/js/sub_page.js"></script>
+    
+    <!-- progress circle 전용 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+    
+    
+
+  <!-- SUBPAGE -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/subpage_20240427.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+
+
+
+  <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+
+
+  <link rel="preload" href="/_header_20240427.html" as="fetch">
+  <link rel="preload" href="/_footer_20240427.html" as="fetch">
+  <script type="text/javascript" src="/assets/js/sub_page.js"></script>
+
+</head>
+
+
+
+
+
+
+
+
+
+<!-- Include HTML Script -->
+<script>
+	  
+  window.addEventListener('load', function() {
+	  var allElements = document.getElementsByTagName('*');
+	  Array.prototype.forEach.call(allElements, function(el) {
+		  var includePath = el.dataset.includePath;
+		  if (includePath) {
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function () {
+				  if (this.readyState == 4 && this.status == 200) {
+					  el.outerHTML = this.responseText;
+				  }
+			  };
+			  xhttp.open('GET', includePath, true);
+			  xhttp.send();
+		  }
+	  });
+  });
+
+</script>
+<!-- // End : Include HTML Script -->
+
+
+<!-- incrude Html -->
+<div data-include-path="/_header_20240427.html"></div>
+<!-- // End : incrude Html -->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ************* Subpage ************* -->
+  <div id="subpage">
+
+
+    <!-- Main Contents -->
+    <div class="sub_title_support"><div class="sub_title_img"><img src="/assets/img/page/sub_title_support.png" height="350px"></div></div>
+    <div class="sub_title"><h3>공지 사항</h3></div>
+    <div class="sub_subtitle"></div>
+    <div class="main_contents">
+
+
+      <style>
+        .board2 {
+          max-width: 1280px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 50px; 
+          border: 1px solid var(--color-silver); border-radius: 10px;
+          
+        }
+
+        .board2 .table2 td {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        .board2 .input5 {
+          width: 100%;
+          border: 1px solid var(--color-silver);
+          padding: 20px;
+          border-radius: 5px;
+        }
+
+        .board2 .input5:hover {
+          background-color: var(--color-ict-8);
+          border-radius: 5px;
+        }
+
+        .board2 .ckeditor {
+          width: calc(100% - 70px);
+          min-height: 300px;
+          margin-left: 70px;
+          padding: 20px;
+        }
+
+        .board2 .ckeditor:hover {
+          background-color: var(--color-ict-8);
+        }
+
+        .center a{
+          display: inline-block;
+          width: 400px;
+          height: 40px;
+          padding: 10px; 
+          align-items: center;
+          border-radius: 10px;
+          border: 1px solid var(--color-ict); 
+          background-color: var(--color-ict-8); 
+          margin: 10px;
+        }
+
+        .center a:hover{
+          background-color: var(--color-ict);
+          color: var(--color-silver);
+          font-weight: 400;
+        }
+      </style>
+
+
+
+
+      <script>
+
+
+        jQuery(document).ready(function () {
+
+          jQuery('#regForm').submit(function (e) {
+            for (content in CKEDITOR.instances) {
+              CKEDITOR.instances[content].updateElement();
+            }
+            register();
+            e.preventDefault();
+
+          });
+
+        });
+
+
+
+        function register() {
+          hideshow('loading', 1);
+          error(0);
+
+          jQuery.ajax({
+            type: "POST",
+            url: "forum_submit.php",
+            data: $('#regForm').serialize(),
+            // data: dataString,  
+            dataType: "json",
+            success: function (msg) {
+
+              if (parseInt(msg.status) == 1) {
+                parent.location.reload(true);
+              }
+              else if (parseInt(msg.status) == 0) {
+                error(1, msg.txt);
+              }
+
+
+              else if (parseInt(msg.status) == 3) {
+                window.location = msg.txt;
+              }
+
+
+
+
+
+              hideshow('loading', 0);
+            }
+          });
+
+        }
+
+
+        function hideshow(el, act) {
+          if (act) jQuery('#' + el).css('visibility', 'visible');
+          else jQuery('#' + el).css('visibility', 'hidden');
+        }
+
+        function error(act, txt) {
+
+          hideshow('error', act);
+
+          if (txt)
+            //jQuery('#error').html(txt);
+
+            if (txt)
+              $('#error').html(txt);
+          // 	apprise(  txt , {'animate':true}); 
+        }
+
+
+      </script>
+
+
+
+
+        <div class="notice">
+
+          <div style="display:block;width:100px;">
+            <b>총<span class="fontict"> 47</span> 건</b></div>
+
+
+          <table class="table2 tbl_pc col-12">
+            <tr>
+              <th>순번</th> 
+              <th>제목</th>
+              <!--<th>작성자</th>-->
+              <th>등록일</th>
+              <!--<th>조회수</th>-->
+
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 47 </td>
+              <td class="td_title">
+                <a href="#">
+                  ▷ IT/SW 무료취업교육 개강일정표입니다.<img src="/assets/img/icons/ict_board_new.png" style="margin-left: 10px;"> </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2024. 03. 14
+                <!--<td  style=" width:130px;text-align:center">28	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 46 </td>
+              <td class="td_title">
+                <a href="#">
+                  ☆[축]2023년 상반기 전체수료생 평균취업률 91% 달성하였습니다. </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 12. 16
+                <!--<td  style=" width:130px;text-align:center">632	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 45 </td>
+              <td class="td_title">
+                <a href="#">
+                  ♧강의실개방♧[각강의실 저녁10시까지개방/주말&공휴일도 개방] </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 12. 04
+                <!--<td  style=" width:130px;text-align:center">488	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 44 </td>
+              <td class="td_title">
+                <a href="#">
+                  ☆[후원소식]국내/국제 학술대회/[IIBC 공모전]을 후원하였습니다. </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 11. 21
+                <!--<td  style=" width:130px;text-align:center">394	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 43 </td>
+              <td class="td_title">
+                <a href="#">
+                  [수료전 기업체 교육원방문 현장면접]23년11월16일(목) 기업체교육원방문 </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 11. 17
+                <!--<td  style=" width:130px;text-align:center">481	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 42 </td>
+              <td class="td_title">
+                <a href="#">
+                  ☆[축]☆국회표창장 수여를 축하합니다.[우수취업지원] </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 10. 04
+                <!--<td  style=" width:130px;text-align:center">653	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 41 </td>
+              <td class="td_title">
+                <a href="#">
+                  ☆[축]2023년올해IT·SW 취업률 우수훈련기관 선정 </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 08. 17
+                <!--<td  style=" width:130px;text-align:center">759	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 40 </td>
+              <td class="td_title">
+                <a href="#">
+                  ☆[축]2023년 훈련이수자평가 A등급 선정 </a>
+
+
+                <!--<td style=" width:70px;text-align:center">시스템관리자	   -->
+
+              <td class="td_date" style="text-align:center">2023. 08. 11
+                <!--<td  style=" width:130px;text-align:center">460	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 39 </td>
+              <td class="td_title">
+                <a href="#">
+                  ※[협회후원소식] 제1회 GPT대화형GPT(생성AI) 경진대회 및 IPACT2023국내학술대회 행사에 한국ICT기술협회(KOICTA)후원을 하였습니다. </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 06. 21
+                <!--<td  style=" width:130px;text-align:center">629	 	-->
+
+
+
+            <tr style="height:60px;vertical-align:middle;">
+              <td class="td_no" style="text-align:center;"> 38 </td>
+              <td class="td_title">
+                <a href="#">
+                  [강남센터8월23일개강]IT무료취업과정[JAVA풀스택(프론트엔드+백엔드)+인공지능]개강합니다. </a>
+
+
+                <!--<td style=" width:70px;text-align:center">박은정	   -->
+
+              <td class="td_date" style="text-align:center">2023. 05. 22
+                <!--<td  style=" width:130px;text-align:center">516	 	-->
+
+
+
+
+          </table>
+
+
+
+
+          <style type="text/css">
+            .pagination3 {
+              display: inline-block;
+              padding-left: 0;
+              margin: 10px 10px;
+              border-radius: 3px;
+            }
+    
+            .pagination3>li {
+              display: inline;
+            }
+    
+            .pagination3>li>a,
+            .pagination3>li>span {
+              width: 35px;
+              height: 35px;
+              align-items: center;
+              position: relative;
+              padding: 10px 10px;
+              text-decoration: none;
+              background-color: #ffffff;
+              border: 1px solid #d9d9d9;
+              margin: 3px;
+              margin-left: -1px;
+              font-size: 12px;
+            }
+    
+            .pagination3>li:first-child>a,
+            .pagination3>li:first-child>span {
+              margin-left: 0;
+              border-bottom-left-radius: 3px;
+              border-top-left-radius: 3px;
+            }
+    
+            .pagination3>li:last-child>a,
+            .pagination3>li:last-child>span {
+              border-bottom-right-radius: 3px;
+              border-top-right-radius: 3px;
+            }
+    
+            .pagination3>li>a:hover,
+            .pagination3>li>span:hover,
+            .pagination3>li>a:focus,
+            .pagination3>li>span:focus {
+              background-color: #f5f5f6;
+            }
+    
+            .pagination3>.active>a,
+            .pagination3>.active>span,
+            .pagination3>.active>a:hover,
+            .pagination3>.active>span:hover,
+            .pagination3>.active>a:focus,
+            .pagination3>.active>span:focus {
+              z-index: 2;
+              color: var(--color-ict);
+              font-weight: 900;
+              background-color: var(--color-white);
+              border-color: var(--color-ict);
+              cursor: default;
+            }
+    
+            .pagination3>.disabled>span,
+            .pagination3>.disabled>span:hover,
+            .pagination3>.disabled>span:focus,
+            .pagination3>.disabled>a,
+            .pagination3>.disabled>a:hover,
+            .pagination3>.disabled>a:focus {
+              color: #999999;
+              background-color: #ffffff;
+              border-color: #dddddd;
+              cursor: not-allowed;
+            }
+    
+            .pagination3-lg>li>a,
+            .pagination3-lg>li>span {
+              padding: 10px 16px;
+              font-size: 12px; 
+            }
+    
+            .pagination3-lg>li:first-child>a,
+            .pagination3-lg>li:first-child>span {
+              border-bottom-left-radius: 3px;
+              border-top-left-radius: 3px;
+            }
+    
+            .pagination3-lg>li:last-child>a,
+            .pagination3-lg>li:last-child>span {
+              border-bottom-right-radius: 3px;
+              border-top-right-radius: 3px;
+            }
+    
+            .pagination3-sm>li>a,
+            .pagination3-sm>li>span {
+              padding: 5px 10px;
+              font-size: 11px;
+            }
+    
+            .pagination3-sm>li:first-child>a,
+            .pagination3-sm>li:first-child>span {
+              border-bottom-left-radius: 2px;
+              border-top-left-radius: 2px;
+            }
+    
+            .pagination3-sm>li:last-child>a,
+            .pagination3-sm>li:last-child>span {
+              border-bottom-right-radius: 2px;
+              border-top-right-radius: 2px;
+            }
+          </style>
+    
+          <div style="text-align:center;">
+            <ul class="pagination3">
+              <li class='prev disabled'>
+                <a href="#">
+                  <i class="fa-light fa-chevron-left"></i>
+                </a>
+              </li>
+              <li class='active'><span>1</span></li>
+              <li><a href="#" class="inactive">2</a></li>
+              <li><a href="#" class="inactive">3</a></li>
+              <li><a href="#" class="inactive">4</a></li>
+              <li><a href="#" class="inactive">5</a></li>
+              <li><a href="#" class="inactive">6</a></li>
+              <li><a href="#" class="inactive">7</a></li>
+              <li><a href="#" class="inactive">8</a></li>
+              <li><a href="#" class="inactive">9</a></li>
+              <li><a href="#" class="inactive">10</a></li>
+              <li class="next">
+                <a href="#">
+                  <i class="fa-light fa-chevron-right"></i>
+                </a>
+              </li>
+              <li class="next">
+                <a href="#">
+                  <i class="fa-light fa-angles-right"></i>
+                </a>
+              </li>
+    
+            </ul>
+          </div>
+    
+
+        </div><!-- // End : class - page_container-->
+      </div><!-- // End : class - notice -->
+
+
+
+
+      <!-- Greetings -->
+      <div class="greeting1" style="margin: 80px 0;">
+        <div class="ceo_txt">
+
+          <div class="txt" id="txt">
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+      </div><!-- //End : greetings -->
+
+    </div><!-- // End: main_contents -->
+  </div><!-- // End: ID: subpage -->
+
+  </div>
+
+  <!-- ********* End : # Main ********** -->
+
+
+
+
+
+  <!-- ************************** Footer ************************************-->
+  <!-- incrude Html -->
+  <!-- Head -->
+  <div data-include-path="/_footer_20240427.html"></div>
+  <!-- // End : incrude Html -->
+</body>
+
+</html>
