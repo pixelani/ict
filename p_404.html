@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+
+
+<title>ICTEDU 2024</title>
+
+<!-- Bootstrap Custom 3.4.0 2024.04.01 -->
+<link rel="stylesheet" href="assets/css/bootstrap.3.4.0_custum.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!-- swiper -->
+<script type="text/javascript" src="assets/js/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="assets/css/swiper-bundle.min.css" />
+<!-- Common CSS -->
+<link rel="stylesheet" type="text/css" href="index.css" />
+<link rel="stylesheet" type="text/css" href="index-font.css" />
+<link rel="stylesheet" type="text/css" href="index-root.css" />
+<link rel="stylesheet" type="text/css" href="index-footer.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/btn.css">
+<!-- SUBPAGE -->
+<link rel="stylesheet" type="text/css" href="assets/css/subpage.css">
+
+<!-- Utils -->
+<link rel="stylesheet" type="text/css" href="assets/css/ict_utils.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/flex-grid.css">
+<link rel="stylesheet" type="text/css" href="assets/css/entypo.css">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+
+
+<script type="text/javascript" src="assets/js/jquery-migrate.min.1.2.1.js"></script> 
+<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+
+
+
+
+
+<link rel="preload" href="_header.html" as="fetch">
+<link rel="preload" href="_footer.html" as="fetch">
+<script type="text/javascript" src="assets/js/sub_page.js"></script>
+
+</head>
+<!-- incrude Html -->
+<div data-include-path="/_header.html"></div>
+<!-- // End : incrude Html -->	
+
+
+<body>
+ <!-- 마우스스크롤 프로그레스 바 시작 -->
+ <div class="progress-container">
+	<div class="progress-bar" id="myProgressBar"></div>
+</div>
+<!-- // End: 마우스스크롤 프로그레스 바 -->
+
+
+
+<!-- Include HTML Script -->
+<script>
+	  
+  window.addEventListener('load', function() {
+	  var allElements = document.getElementsByTagName('*');
+	  Array.prototype.forEach.call(allElements, function(el) {
+		  var includePath = el.dataset.includePath;
+		  if (includePath) {
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function () {
+				  if (this.readyState == 4 && this.status == 200) {
+					  el.outerHTML = this.responseText;
+				  }
+			  };
+			  xhttp.open('GET', includePath, true);
+			  xhttp.send();
+		  }
+	  });
+  });
+
+</script>
+<!-- // End : Include HTML Script -->
+
+
+  <!-- ************* Subpage ************* -->
+  <div id="subpage">
+
+  
+  <!-- Main Contents -->
+  <div class="sub_title_contact"><div class="sub_title_img"><img src="" height="350px"></div></div>
+  <div class="sub_title" style="font-size: 40px; font-weight: 300;">안 내</div> 
+  <div class="sub_subtitle"></div>
+  <div class="main_contents">
+ 
+
+      <script>
+
+
+        jQuery(document).ready(function () {
+
+          jQuery('#regForm').submit(function (e) {
+            for (content in CKEDITOR.instances) {
+              CKEDITOR.instances[content].updateElement();
+            }
+            register();
+            e.preventDefault();
+
+          });
+
+        });
+
+
+
+        function register() {
+          hideshow('loading', 1);
+          error(0);
+
+          jQuery.ajax({
+            type: "POST",
+            url: "forum_submit.php",
+            data: $('#regForm').serialize(),
+            // data: dataString,  
+            dataType: "json",
+            success: function (msg) {
+
+              if (parseInt(msg.status) == 1) {
+                parent.location.reload(true);
+              }
+              else if (parseInt(msg.status) == 0) {
+                error(1, msg.txt);
+              }
+
+
+              else if (parseInt(msg.status) == 3) {
+                window.location = msg.txt;
+              }
+
+
+
+
+
+              hideshow('loading', 0);
+            }
+          });
+
+        }
+
+
+        function hideshow(el, act) {
+          if (act) jQuery('#' + el).css('visibility', 'visible');
+          else jQuery('#' + el).css('visibility', 'hidden');
+        }
+
+        function error(act, txt) {
+
+          hideshow('error', act);
+
+          if (txt)
+            //jQuery('#error').html(txt);
+
+            if (txt)
+              $('#error').html(txt);
+          // 	apprise(  txt , {'animate':true}); 
+        }
+
+
+      </script>
+
+    
+
+      <!-- class : contact -->
+      <div class="contact" style="width: 50%; padding: 50px; text-align: center;">
+
+      
+        <x class="f40 f_ict">404 Not found</x><br>
+        <x class="f20 f_dark c">요청하신 파일을 찾을 수 없습니다.</x>
+
+      </div>
+      <div style="text-align: center; width: 100%; margin-top: 50px;"> 
+        <a class="btn_hover bg_color_orange" style="display: inline-block; height: 30px; padding-top: 5px;" value=""><span>첫화면으로</span></a>
+        <a class="btn_hover bg_color_blue" style="display: inline-block; height: 30px; padding-top: 5px;" value=""><span>비밀번호찾기</span></a>
+        <a class="btn_hover bg_color_purple" style="display: inline-block; height: 30px; padding-top: 5px;" value=""><span>회원가입</span></a>
+        <br><i class="fa-regular fa-triangle-exclamation f_ict f12"></i> 잠깐! 가입정보가 있는지 확인하시겠어요?</div> 
+        <!--// End : class : contact -->
+
+      <!-- CKEeditor Script -->
+      <script>
+        CKEDITOR.replace( 'content', {
+          filebrowserUploadUrl: 'editors/ckeditor/upload_ck.php' 
+        });
+
+
+
+        CKEDITOR.config.toolbar = [
+        ['Styles','Format','Font','FontSize'],
+
+        ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste', 'Replace','-','Outdent','Indent','-','Print'],
+
+        ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ['Image','Table','-','Link', 'Smiley','TextColor','BGColor','Source']
+        ] ;
+
+        CKEDITOR.config.height = 300;    
+      </script>
+      <!-- // End : CKEeditor Script -->
+
+
+      
+ 
+ 
+
+
+
+
+
+      <div class="greeting1" style="margin: 80px 0;">
+        <div class="ceo_txt">
+
+          <div class="txt" id="txt">
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+</div>
+<!--// sub_study -->
+
+</div>
+<!-- main_contents -->
+
+</div>
+<!-- // ************* Subpage ************* -->
+
+
+
+
+  <!-- ************************** Footer ************************************-->
+  <!-- incrude Html -->
+  <!-- Head -->
+  <div data-include-path="/_footer.html"></div>
+  <!-- // End : incrude Html -->
+</body>
+
+</html>

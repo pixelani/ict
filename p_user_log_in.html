@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+
+
+<title>한국ICT인재개발원</title>
+<script type="text/javascript" src="assets/js/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="assets/js/sub_page.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+<!-- Include HTML Script -->
+<script>
+	  
+  window.addEventListener('load', function() {
+	  var allElements = document.getElementsByTagName('*');
+	  Array.prototype.forEach.call(allElements, function(el) {
+		  var includePath = el.dataset.includePath;
+		  if (includePath) {
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function () {
+				  if (this.readyState == 4 && this.status == 200) {
+					  el.outerHTML = this.responseText;
+				  }
+			  };
+			  xhttp.open('GET', includePath, true);
+			  xhttp.send();
+		  }
+	  });
+  });
+
+</script>
+<!-- // End : Include HTML Script -->
+
+
+
+
+<!-- incrude Html -->
+<div data-include-path="_header.html"></div>
+<!-- // End : incrude Html -->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ************* Subpage ************* -->
+  <div id="subpage">
+
+
+  
+  <!-- Main Contents -->
+  <div class="sub_title_contact"><div class="sub_title_img"><img src="" height="350px"></div></div>
+  <div class="sub_title"><h3>로그인</h3></div>
+  <div class="sub_subtitle"></div>
+  <div class="main_contents">
+ 
+
+      <script>
+
+
+        jQuery(document).ready(function () {
+
+          jQuery('#regForm').submit(function (e) {
+            for (content in CKEDITOR.instances) {
+              CKEDITOR.instances[content].updateElement();
+            }
+            register();
+            e.preventDefault();
+
+          });
+
+        });
+
+
+
+        function register() {
+          hideshow('loading', 1);
+          error(0);
+
+          jQuery.ajax({
+            type: "POST",
+            url: "forum_submit.php",
+            data: $('#regForm').serialize(),
+            // data: dataString,  
+            dataType: "json",
+            success: function (msg) {
+
+              if (parseInt(msg.status) == 1) {
+                parent.location.reload(true);
+              }
+              else if (parseInt(msg.status) == 0) {
+                error(1, msg.txt);
+              }
+
+
+              else if (parseInt(msg.status) == 3) {
+                window.location = msg.txt;
+              }
+
+
+
+
+
+              hideshow('loading', 0);
+            }
+          });
+
+        }
+
+
+        function hideshow(el, act) {
+          if (act) jQuery('#' + el).css('visibility', 'visible');
+          else jQuery('#' + el).css('visibility', 'hidden');
+        }
+
+        function error(act, txt) {
+
+          hideshow('error', act);
+
+          if (txt)
+            //jQuery('#error').html(txt);
+
+            if (txt)
+              $('#error').html(txt);
+          // 	apprise(  txt , {'animate':true}); 
+        }
+
+
+      </script>
+
+    <style>
+        
+#subpage .main_contents .contact .qna .id {
+  width: 200px;
+  border: 1px solid var(--color-silver);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#subpage .main_contents .contact .qna .pw1 {
+
+  width: 200px;
+  border: 1px solid var(--color-silver);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#subpage .main_contents .contact .qna .pw2 {
+  width: 200px;
+  border: 1px solid var(--color-silver);
+  padding: 20px;
+  border-radius: 5px;
+}
+    </style>
+
+      <!-- class : contact -->
+      <div class="contact" style="width: 50%; padding-top: 50px;  padding-bottom: 0px;"> 
+
+        <table class="qna" style="padding-top: 50px;"> 
+          <tr>
+            <th class="contact_name"><b>아 이 디</b></th> 
+            <td><input type="text" name="a" value="" class="input5" placeholder="아이디를 입력하세요"></td>
+            <td rowspan="2" style="width: 90px;">
+              <button class="btn_hover bg_color_orange" style="margin-left: 10px; height: 140px;" value=""><span>로그인</span></button></td> 
+          </tr>
+          <tr>
+            <th class="contact_name"><b>비밀번호</b></th>  
+            <td><input type="text" name="a" value="" class="input5" placeholder="비밀번호를 입력하세요"></td>
+          </tr>
+          <tr><td colspan="3" style="height: 10px;"><div style="float:right; height: 20px;"><span class="essential"></span> 는 필수 입력사항입니다</div></td></tr>
+
+        </table> 
+          
+
+
+  
+      <!-- <div style="text-align: center;">  
+        <button class="btn_hover bg_color_orange" value=""><span>로그인</span></button>
+      </div>  -->
+      
+
+
+   
+ 
+
+ 
+
+
+      </div>
+      <div style="text-align: center; width: 100%; margin-top: 50px;"> 
+        <i class="fa-regular fa-triangle-exclamation f_ict f12"></i> 잠깐! 가입정보가 있는지 확인하시겠어요?<br>
+        <button class="btn_hover bg_color_gold" style="height: 30px;" value=""><span>비밀번호찾기</span></button>
+        <button class="btn_hover bg_color_gold" style="height: 30px;" value=""><span>회원가입</span></button></div> 
+      <!--// End : class : contact -->
+
+      <!-- CKEeditor Script -->
+      <script>
+        CKEDITOR.replace( 'content', {
+          filebrowserUploadUrl: 'editors/ckeditor/upload_ck.php' 
+        });
+
+
+
+        CKEDITOR.config.toolbar = [
+        ['Styles','Format','Font','FontSize'],
+
+        ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste', 'Replace','-','Outdent','Indent','-','Print'],
+
+        ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ['Image','Table','-','Link', 'Smiley','TextColor','BGColor','Source']
+        ] ;
+
+        CKEDITOR.config.height = 300;    
+      </script>
+      <!-- // End : CKEeditor Script -->
+
+
+      
+ 
+ 
+
+
+
+
+
+      <div class="greeting1" style="margin: 80px 0;">
+        <div class="ceo_txt">
+
+          <div class="txt" id="txt">
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+</div>
+<!--// sub_study -->
+
+</div>
+<!-- main_contents -->
+
+</div>
+<!-- // ************* Subpage ************* -->
+
+
+
+
+  <!-- ************************** Footer ************************************-->
+  <!-- incrude Html -->
+  <!-- Head -->
+  <div data-include-path="_footer.html"></div>
+  <!-- // End : incrude Html -->
+</body>
+
+</html>

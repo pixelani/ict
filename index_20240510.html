@@ -70,7 +70,8 @@
 <link rel="preload" href="index-root.css" as="style"/>
 <link rel="preload" href="index-footer.css" as="style"/>
 
-<link rel="stylesheet" type="text/css" href="assets/css/swiper-bundle.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="assets/css/swiper-bundle.min.css" /> -->
+
 <!-- Common CSS -->
 <link rel="stylesheet" type="text/css" href="index.css" />
 <link rel="stylesheet" type="text/css" href="index-font.css" />
@@ -84,7 +85,8 @@
 
 <link rel="stylesheet" type="text/css" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
 
-<!-- Main Banner & 취업과정 2024.05.14 -->
+<!-- Main Banner -->
+
 <link rel="stylesheet" type="text/css" href="assets/css/main-big-slide.css">
 
 </head>
@@ -122,8 +124,14 @@
   
   </script>
   <!-- // End : Include HTML Script -->
-  
-  
+
+
+
+
+
+
+
+
 
 
 
@@ -512,354 +520,551 @@
 
 	
 
-	<!-- 취업과정 -->
+	
 
 
-            
-	<section id="main_curriculum_new" class="main_curriculum_section content_section">
-		<div class="section_title_common">
-			<h3 class="section_title">취업과정</h3>
-			<p class="section_subtitle">정부지원 100% 무료 취업교육과정을 만나보세요
-				<a href="p_ict_study.html" class="allview_btn_m">All-View</a>
-			</p>
-		</div>
-		
-		<div id="" class="main_curriculum content">
+	<!-- S : 취업과정 슬라이드 추가항목 2024.05.10 -->
+	
+	<link rel="stylesheet" href="assets/css/new/swiper.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="assets/css/new/swiper-bundle_v2.min.css" />
+	<link rel="stylesheet" href="assets/css/new/course_box.css" />
+	<script type="text/javascript" src="assets/js/jquery.stellar.min.js" ></script>
+	<script type="text/javascript" src="assets/js/swiper_.js"></script>
+	<script>
+		(function ($) {
+			$.fn.watch = function (cb) {
+				var conf = {
+					attributes: true,
+					subtree: true,
+					childList: true,
+					attributeOldValue: true,
+				};
+				$(this).each(function () {
+					var that = this;
 
-		<!-- Custom JavaScript -->
-		<script>
-			$(".swiper-slide").hover(
-				function () {
-					swiper.autoplay.stop();
+					function callback(record) {
+						cb.call(that, record, this);
+					}
+					new MutationObserver(callback).observe(this, conf);
+				});
+			};
+		})(jQuery);
+
+		var ww = $(document).width();
+		var sp1, sp2;
+
+		var sp1_cnt = $("span#play_1_cnt").text();
+		var sp2_cnt = $("span#play_2_cnt").text();
+
+		if (sp1_cnt > 4) {
+			sp1_cnt = 4;
+		}
+		if (sp2_cnt > 4) {
+			sp2_cnt = 4;
+		}
+
+		var governmentSlider1 = new Swiper("#government1 .ListBox", {
+			effect: "coverflow",
+			grabCursor: true,
+			centeredSlides: false,
+			slidesPerView: 4,
+			spaceBetween: 10,
+			loop: true,
+			autoplay: false,
+			coverflowEffect: {
+				rotate: 0,
+				stretch: 0,
+				depth: 0,
+				modifier: 1,
+				slideShadows: false,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
 				},
-				function () {
-					swiper.autoplay.start();
-				}
-			);
-		</script>
+				618: {
+					slidesPerView: 1,
+				},
+				619: {
+					slidesPerView: 2,
+				},
+				620: {
+					slidesPerView: 2,
+				},
+				912: {
+					slidesPerView: 2,
+				},
+				921: {
+					slidesPerView: 3,
+				},
+				1200: {
+					slidesPerView: 3,
+				},
+				1201: {
+					slidesPerView: 4,
+				},
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
 
-		<div class="curriculum_list">
+		var box = $("#government2");
+		var flag = true;
+		box.watch(function (record, observer) {
+			if (flag) {
+				var governmentSlider2 = new Swiper(
+					"#government2 .ListBox",
+					{
+						effect: "coverflow",
+						grabCursor: true,
+						centeredSlides: false,
+						slidesPerView: 4,
+						spaceBetween: 10,
+						loop: true,
+						autoplay: false,
+						coverflowEffect: {
+							rotate: 0,
+							stretch: 0,
+							depth: 0,
+							modifier: 1,
+							slideShadows: false,
+						},
+						breakpoints: {
+							320: {
+								slidesPerView: 1,
+							},
+							618: {
+								slidesPerView: 1,
+							},
+							619: {
+								slidesPerView: 2,
+							},
+							620: {
+								slidesPerView: 2,
+							},
+							912: {
+								slidesPerView: 2,
+							},
+							921: {
+								slidesPerView: 3,
+							},
+							1200: {
+								slidesPerView: 3,
+							},
+							1201: {
+								slidesPerView: 4,
+							},
+						},
+						pagination: {
+							el: ".swiper-pagination",
+							clickable: true,
+						},
+					}
+				);
 
-			
-			
-			
-			<div class="swiper">
-				<div role="tabpanel" class="main-middle-tab-content tab-pane in active" id="play_1" >
-					<div class="CourseBox">
-						<div class="" id="government1">
-							<div class="ListBox">
-								<ul class="swiper-wrapper InnerList">
+				flag = false;
+			}
+		});
+
+		function getRandom() {
+			var int = Math.random();
+			return parseInt(int * 10);
+		}
+
+		var sp = new Swiper(".special__course-new .swiper-container", {
+			effect: "coverflow",
+			grabCursor: true,
+			centeredSlides: false,
+			slidesPerView: 4,
+			spaceBetween: 10,
+			initialSlide: getRandom(),
+			loop: true,
+			autoplay: { delay: 5000 },
+			coverflowEffect: {
+				rotate: 0,
+				stretch: 0,
+				depth: 0,
+				modifier: 1,
+				slideShadows: false,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: "auto",
+					centeredSlides: true,
+				},
+				640: {
+					slidesPerView: "auto",
+					centeredSlides: true,
+				},
+				720: {
+					slidesPerView: 2,
+					centeredSlides: false,
+				},
+				800: {
+					slidesPerView: 3,
+					centeredSlides: false,
+				},
+				960: {
+					slidesPerView: 3,
+					centeredSlides: false,
+				},
+				1180: {
+					slidesPerView: 4,
+					centeredSlides: false,
+				},
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
+
+		(function ($) {
+			$.fn.watch = function (cb) {
+				var conf = {
+					attributes: true,
+					subtree: true,
+					childList: true,
+					attributeOldValue: true,
+				};
+				$(this).each(function () {
+					var that = this;
+
+					function callback(record) {
+						cb.call(that, record, this);
+					}
+					new MutationObserver(callback).observe(this, conf);
+				});
+			};
+		})(jQuery);
+	</script>
+  	<script>
+		$(".swiper-slide").hover(
+			function () {
+				swiper.autoplay.stop();
+			},
+			function () {
+				swiper.autoplay.start();
+			}
+		);
+	</script>
+
+	<!-- E : 과정슬라이드 추가항목 2024.05.10 -->
 
 
 
+	<section id="main_curriculum" class="main_curriculum_section content_section">
+
+	<div class="section_title_common" style="padding-top: 40px; padding-bottom: 40px;">
+		<h3 class="section_title">취업과정</h3>
+		<p class="section_subtitle">정부지원 100% 무료 취업교육과정을 만나보세요
+			<a href="p_ict_study.html" class="allview_btn_m">All-View</a>
+		</p>
+	</div>
+		
+		<div id="main_curriculum2" class="main_curriculum content">
+			<div class="curriculum_list">
 
 
-
-
-									<li class="swiper-slide swiper-slide-active">
-										<div class="item curriculum_item">
-											<div><img src="assets/img/study/new_study01.png" alt="수업이미지"></div>
-											<p class="content_explain">클라우드 기반 AI대화형 서비스 웹개발자과정</p>
-											<p class="content_date">교육기간 : 2024.03.19 ~ 2024.09.30 (6.5개월)<br> 교육시간 : 오전 9시30분~저녁6시30분(월~금)<br> 교육장소 : 강남센터 
-											</p>
-										</div>
-									</li>
-
-
-									<li class="swiper-slide swiper-slide-active">
-										<div class="item curriculum_item">
-											<div><img src="assets/img/study/new_study02.png" alt="수업이미지"></div>
-											<p class="content_explain" style="font-weight: 600 !important;">클라우드 기반 AI대화형 서비스 웹개발자과정</p>
-											<p class="content_date">
-												교육기간 : 2024.04.15 ~ 2024.10.28 (6.5개월)<br> 교육시간 : 오전 9시30분~저녁6시30분(월~금)<br> 교육장소 : 신촌센터
-											</p>
-										</div>
-									</li>
-
-
-									<li class="swiper-slide swiper-slide-active">
-										<div class="item curriculum_item">
-											<div><img src="assets/img/study/new_study03.png" alt="수업이미지"></div>
-											<p class="content_explain" style="font-weight: 600 !important;">지능형 도우미 서비스 융합 웹서비스 개발자과정</p>
-											<p class="content_date">
-												교육기간 : 2024.04.30 ~ 2024.10.25 (6개월)<br> 교육시간 : 오전 9시30분~저녁6시30분(월~금)<br> 교육장소 : 성수센터
-											</p>
-										</div>
-									</li>
-
-
-									<li class="swiper-slide swiper-slide-active">
-										<div class="item curriculum_item">
-											<div><img src="assets/img/study/new_study04.png" alt="수업이미지"></div>
-											<p class="content_explain" style="font-weight: 600 !important;">지능형 도우미 서비스 융합 웹서비스 개발자과정</p>
-											<p class="content_date">
-												교육기간 : 2024.06.10 ~ 2024.12.31 (7개월)<br> 교육시간 : 오전 9시30분~저녁6시30분(월~금)<br> 교육장소 : 신촌센터
-											</p>
-										</div>
-									</li>
-
-
-									<li class="swiper-slide swiper-slide-active">
-										<div class="item curriculum_item">
-											<div><img src="assets/img/study/new_study05.png" alt="수업이미지"></div>
-											<p class="content_explain" style="font-weight: 600 !important;">(디지털컨버전스) 자바(java) 기반의 뎅터융합 개발자 양성과정</p>
-											<p class="content_date">
-												교육기간 : 2024.07.11 ~ 2025.01.17 (7개월)<br> 교육시간 : 오전 9시30분~저녁6시30분(월~금)<br> 교육장소 : 강남센터
-											</p>
-										</div>
-									</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-									
-								</ul>
-				
-								<div class="swiper-pagination" style="position: relative; top: -60px;"></div>
-							</div>
-						</div>
-					</div>
+				<div class="curriculum_item1 curriculum_item swiper-slide swiper-slide-active" onclick="location.href=''">
+					<div><img src="assets/img/study/study01.png" alt="수업이미지"></div>
+					<p class="content_explain">클라우드 기반 AI대화형 서비스 웹개발자과정</p>
+					<p class="content_date">
+						교육기간 : 2024.03.19 ~ 2024.09.30 (6.5개월)<br>
+						교육시간 : 오전 9시30분~저녁6시30분(월~금)<br>
+						교육장소 : 강남센터 
+					</p>
 				</div>
 				
+
+
+
+
+
+				
+				<div class="curriculum_item2 curriculum_item swiper-slide swiper-slide-active" onclick="location.href=''">
+					<div><img src="assets/img/study/study02.png" alt="수업이미지"></div>
+					<p class="content_explain" style="font-weight: 600 !important;">클라우드 기반 AI대화형 서비스 웹개발자과정</p>
+					<p class="content_date">
+						교육기간 : 2024.04.15 ~ 2024.10.28 (6.5개월)<br>
+						교육시간 : 오전 9시30분~저녁6시30분(월~금)<br>
+						교육장소 : 신촌센터
+					</p>
+				</div>
+				
+				
+
+
+
+
+
+
+				<div class="curriculum_item3 curriculum_item swiper-slide swiper-slide-active" onclick="location.href=''">
+					<div><img src="assets/img/study/study03.png" alt="수업이미지"></div>
+					<p class="content_explain" style="font-weight: 600 !important;">지능형 도우미 서비스 융합 웹서비스 개발자과정</p>
+					<p class="content_date">
+						교육기간 : 2024.04.30 ~ 2024.10.25 (6개월)<br>
+						교육시간 : 오전 9시30분~저녁6시30분(월~금)<br>
+						교육장소 : 성수센터
+					</p>
+				</div>
+				
+
+
+
+
+
+
+
+				
+				<div class="curriculum_item4 curriculum_item swiper-slide swiper-slide-active" onclick="location.href=''">
+					<div><img src="assets/img/study/study04.png" alt="수업이미지"></div>
+					<p class="content_explain" style="font-weight: 600 !important;">지능형 도우미 서비스 융합 웹서비스 개발자과정</p>
+					<p class="content_date">
+						교육기간 : 2024.06.10 ~ 2024.12.31 (7개월)<br>
+						교육시간 : 오전 9시30분~저녁6시30분(월~금)<br>
+						교육장소 : 신촌센터
+					</p>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			</div>
+
+			<!-- <div class="swiper_pagination_study auto tt" 
+			style="position: relative; top: -150px; width: 100%; height: 50px; "></div> -->
+
+
+			
+			
+
+
+			
+		</div>
+	</section>
+	<!-- //취업과정 -->
+	
+
+	
+
+
+<!-- new Slider -->
+<script type="text/javascript" src="assets/js/xswiper-bundle.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="assets/css/new/new_slider.css">
+<link rel="stylesheet" type="text/css" href="assets/css/xswiper-bundle.min.css" />
+
+<section id="main_curriculum" class="main_curriculum_section content_section">
+
+	<div class="section_title_common" style="padding-top: 40px; padding-bottom: 40px;">
+		<h3 class="section_title">취업과정</h3>
+		<p class="section_subtitle">정부지원 100% 무료 취업교육과정을 만나보세요
+			<a href="p_ict_study.html" class="allview_btn_m">All-View</a>
+		</p>
+	</div>
+	
+	
+	<script id="xrendered-js" >
+		var swiper = new Swiper(".xslide-contentx", {
+		  slidesPerView: 4,
+		  spaceBetween: 25,
+		  loop: true,
+		  centerSlide: 'true',
+		  fade: 'true',
+		  grabCursor: 'true',
+		  pagination: {
+			el: ".xswiper-pagination",
+			clickable: true,
+			dynamicBullets: true },
+		
+		  navigation: {
+			nextEl: ".xswiper-button-next",
+			prevEl: ".xswiper-button-prev" },
+		
+		
+		  breakpoints: {
+			0: {
+			  slidesPerView: 1 },
+			320: {
+			  slidesPerView: 2 },
+			630: {
+			  slidesPerView: 3 },
+			950: {
+			  slidesPerView: 4 } } });
+		//# sourceURL=pen.js
+			</script>
+		
+
+	<div class="xslide-container xswiper">
+		<div class="xslide-contentx">
+			<div class="xcard-wrapper xswiper-wrapper">
+				<div class="xcard xswiper-slide">
+					<div class="ximage-content">
+						<span class="xoverlay"></span>
+
+						<div class="xcard-image">
+						   <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" alt="" class="card-img">
+						</div>
+					</div>
+
+					<div class="xcard-content">
+						<h2 class="xname">Mohamed Yousef
+</h2>
+						<p class="xdescription">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+						
+					</div>
+				</div>
+				<div class="xcard xswiper-slide">
+					<div class="ximage-content">
+						<span class="xoverlay"></span>
+
+						<div class="xcard-image">
+							   <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" alt="" class="xcard-img">
+						</div>
+					</div>
+
+					<div class="card-content">
+						<h2 class="name">Mohamed Yousef
+</h2>
+						<p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+						<button class="button">View More</button>
+					</div>
+				</div>
+				<div class="xcard xswiper-slide">
+					<div class="ximage-content">
+						<span class="xoverlay"></span>
+
+						<div class="xcard-image">
+							   <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" alt="" class="xcard-img">
+						</div>
+					</div>
+
+					<div class="xcard-content">
+						<h2 class="xname">Mohamed Yousef
+</h2>
+						<p class="xdescription">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+						<button class="xbutton">View More</button>
+					</div>
+				</div>
+				<div class="xcard xswiper-slide">
+					<div class="ximage-content">
+						<span class="xoverlay"></span>
+
+						<div class="xcard-image">
+							   <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" alt="" class="xcard-img">
+						</div>
+					</div>
+
+					<div class="xcard-content">
+						<h2 class="xname">Mohamed Yousef
+</h2>
+						<p class="xdescription">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+						<button class="xbutton">View More</button>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		
-		<script>
-			(function ($) {
-				$.fn.watch = function (cb) {
-					var conf = {
-						attributes: true,
-						subtree: true,
-						childList: true,
-						attributeOldValue: true,
-					};
-					$(this).each(function () {
-						var that = this;
+		<div class="xswiper-button-next xswiper-navBtn"></div>
+		<div class="xswiper-button-prev xswiper-navBtn"></div>
+		<div class="xswiper-pagination"></div>
+	</div>
 
-						function callback(record) {
-							cb.call(that, record, this);
-						}
-						new MutationObserver(callback).observe(this, conf);
-					});
-				};
-			})(jQuery);
 
-			var ww = $(document).width();
-			var sp1, sp2;
+	<script>
+		 
+var swiper = new Swiper(".xslide-content", {
+    slidesPerView: 4,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: 'true',
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".xswiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".xswiper-button-next",
+      prevEl: ".xswiper-button-prev",
+    },
 
-			var sp1_cnt = $("span#play_1_cnt").text();
-			var sp2_cnt = $("span#play_2_cnt").text();
-
-			if (sp1_cnt > 4) {
-				sp1_cnt = 4;
-			}
-			if (sp2_cnt > 4) {
-				sp2_cnt = 4;
-			}
-
-			var governmentSlider1 = new Swiper("#government1 .ListBox", {
-				effect: "coverflow",
-				grabCursor: true,
-				centeredSlides: false,
-				slidesPerView: 4,
-				spaceBetween: 10,
-				loop: true,
-				autoplay: false,
-				coverflowEffect: {
-					rotate: 0,
-					stretch: 0,
-					depth: 0,
-					modifier: 1,
-					slideShadows: false,
-				},
-				breakpoints: {
-					320: {
-						slidesPerView: 1,
-					},
-					618: {
-						slidesPerView: 1,
-					},
-					619: {
-						slidesPerView: 2,
-					},
-					620: {
-						slidesPerView: 2,
-					},
-					912: {
-						slidesPerView: 2,
-					},
-					921: {
-						slidesPerView: 3,
-					},
-					1200: {
-						slidesPerView: 3,
-					},
-					1201: {
-						slidesPerView: 4,
-					},
-				},
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-			});
-
-			var box = $("#government2");
-			var flag = true;
-			box.watch(function (record, observer) {
-				if (flag) {
-					var governmentSlider2 = new Swiper(
-						"#government2 .ListBox",
-						{
-							effect: "coverflow",
-							grabCursor: true,
-							centeredSlides: false,
-							slidesPerView: 4,
-							spaceBetween: 10,
-							loop: true,
-							autoplay: false,
-							coverflowEffect: {
-								rotate: 0,
-								stretch: 0,
-								depth: 0,
-								modifier: 1,
-								slideShadows: false,
-							},
-							breakpoints: {
-								320: {
-									slidesPerView: 1,
-								},
-								618: {
-									slidesPerView: 1,
-								},
-								619: {
-									slidesPerView: 2,
-								},
-								620: {
-									slidesPerView: 2,
-								},
-								912: {
-									slidesPerView: 2,
-								},
-								921: {
-									slidesPerView: 3,
-								},
-								1200: {
-									slidesPerView: 3,
-								},
-								1201: {
-									slidesPerView: 4,
-								},
-							},
-							pagination: {
-								el: ".swiper-pagination",
-								clickable: true,
-							},
-						}
-					);
-
-					flag = false;
-				}
-			});
-
-			function getRandom() {
-				var int = Math.random();
-				return parseInt(int * 10);
-			}
-
-			var sp = new Swiper(".special__course-new .swiper-container", {
-				effect: "coverflow",
-				grabCursor: true,
-				centeredSlides: false,
-				slidesPerView: 4,
-				spaceBetween: 10,
-				initialSlide: getRandom(),
-				loop: true,
-				autoplay: { delay: 5000 },
-				coverflowEffect: {
-					rotate: 0,
-					stretch: 0,
-					depth: 0,
-					modifier: 1,
-					slideShadows: false,
-				},
-				breakpoints: {
-					320: {
-						slidesPerView: "auto",
-						centeredSlides: true,
-					},
-					640: {
-						slidesPerView: "auto",
-						centeredSlides: true,
-					},
-					720: {
-						slidesPerView: 2,
-						centeredSlides: false,
-					},
-					800: {
-						slidesPerView: 3,
-						centeredSlides: false,
-					},
-					960: {
-						slidesPerView: 3,
-						centeredSlides: false,
-					},
-					1180: {
-						slidesPerView: 4,
-						centeredSlides: false,
-					},
-				},
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-			});
-
-			(function ($) {
-				$.fn.watch = function (cb) {
-					var conf = {
-						attributes: true,
-						subtree: true,
-						childList: true,
-						attributeOldValue: true,
-					};
-					$(this).each(function () {
-						var that = this;
-
-						function callback(record) {
-							cb.call(that, record, this);
-						}
-						new MutationObserver(callback).observe(this, conf);
-					});
-				};
-			})(jQuery);
-		</script>
+    breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        320: {
+            slidesPerView: 2,
+        },
+        630: {
+            slidesPerView: 3,
+        },
+        950: {
+            slidesPerView: 4,
+        },
+    },
+  });
+ 
+	</script>
 	
-</div>
 	</section>
 
 
-	<!-- //취업과정 -->
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1282,6 +1487,16 @@
 	
 
 
+
+
+
+
+
+
+
+
+
+
 	<!-- 관계기업 롤링 -->
 	<div class="main_rolling">
 	<!-- <section class="main_ment_section content_section"> -->
@@ -1531,12 +1746,27 @@
 		
 
 
+
+
+
+
+
+
+
+
 	<!-- 성공이미지 -->
 
 	<section class="main_direction_section">
 		<h3 class="section_title">취업성공의 시작<br> 한국ICT인재개발원에서 시작하세요</h3>
 	</section>
 	<!-- //성공이미지 -->
+
+
+
+
+
+
+
 
 
 

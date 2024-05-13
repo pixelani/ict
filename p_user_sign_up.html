@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+
+
+<title>한국ICT인재개발원</title>
+<script type="text/javascript" src="assets/js/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="assets/js/sub_page.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+<!-- Include HTML Script -->
+<script>
+	  
+  window.addEventListener('load', function() {
+	  var allElements = document.getElementsByTagName('*');
+	  Array.prototype.forEach.call(allElements, function(el) {
+		  var includePath = el.dataset.includePath;
+		  if (includePath) {
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function () {
+				  if (this.readyState == 4 && this.status == 200) {
+					  el.outerHTML = this.responseText;
+				  }
+			  };
+			  xhttp.open('GET', includePath, true);
+			  xhttp.send();
+		  }
+	  });
+  });
+
+</script>
+<!-- // End : Include HTML Script -->
+
+
+
+
+<!-- incrude Html -->
+<div data-include-path="_header.html"></div>
+<!-- // End : incrude Html -->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ************* Subpage ************* -->
+  <div id="subpage">
+
+
+  
+  <!-- Main Contents -->
+  <div class="sub_title_contact"><div class="sub_title_img"><img src="" height="350px"></div></div>
+  <div class="sub_title"><h3>회원가입</h3></div>
+  <div class="sub_subtitle"></div>
+  <div class="main_contents">
+ 
+
+      <script>
+
+
+        jQuery(document).ready(function () {
+
+          jQuery('#regForm').submit(function (e) {
+            for (content in CKEDITOR.instances) {
+              CKEDITOR.instances[content].updateElement();
+            }
+            register();
+            e.preventDefault();
+
+          });
+
+        });
+
+
+
+        function register() {
+          hideshow('loading', 1);
+          error(0);
+
+          jQuery.ajax({
+            type: "POST",
+            url: "forum_submit.php",
+            data: $('#regForm').serialize(),
+            // data: dataString,  
+            dataType: "json",
+            success: function (msg) {
+
+              if (parseInt(msg.status) == 1) {
+                parent.location.reload(true);
+              }
+              else if (parseInt(msg.status) == 0) {
+                error(1, msg.txt);
+              }
+
+
+              else if (parseInt(msg.status) == 3) {
+                window.location = msg.txt;
+              }
+
+
+
+
+
+              hideshow('loading', 0);
+            }
+          });
+
+        }
+
+
+        function hideshow(el, act) {
+          if (act) jQuery('#' + el).css('visibility', 'visible');
+          else jQuery('#' + el).css('visibility', 'hidden');
+        }
+
+        function error(act, txt) {
+
+          hideshow('error', act);
+
+          if (txt)
+            //jQuery('#error').html(txt);
+
+            if (txt)
+              $('#error').html(txt);
+          // 	apprise(  txt , {'animate':true}); 
+        }
+
+
+      </script>
+
+    <style>
+        
+#subpage .main_contents .contact .qna .id {
+  width: 200px;
+  border: 1px solid var(--color-silver);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#subpage .main_contents .contact .qna .pw1 {
+
+  width: 200px;
+  border: 1px solid var(--color-silver);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#subpage .main_contents .contact .qna .pw2 {
+  width: 200px;
+  border: 1px solid var(--color-silver);
+  padding: 20px;
+  border-radius: 5px;
+}
+    </style>
+
+      <!-- class : contact -->
+      <div class="contact"> 
+
+        <table style="width: 100%; padding: 20px;"> 
+            <tr>
+                <td style="padding: 20px;">서비스 이용약관<br> 
+                    <iframe src="/page_20240421/doc_policy.html" 
+                    frameborder="0" style="border: 1px solid var(--color-silver); width: 100%; height: 200px; gap: 20px;"></iframe> 
+                    <div style="margin-top: 10px;"><input type="checkbox" name=agree value="1" id="agree" class="md-check">
+                        <label for="agree">위 이용약관에 동의합니다.</label> 
+                       </div>
+                </td style="padding: 20px;">
+                <td>개인정보 처리지침<br>
+                    <iframe src="/page_20240421/doc_contents.html" 
+                    frameborder="0" style="border: 1px solid var(--color-silver); width: 100%; height: 200px; gap: 20px;"></iframe>
+                    <div style="margin-top: 10px;">
+                        <input type="checkbox" name=agree value="1" id="agree" class="md-check">
+                        <label for="agree">위 개인정보 처리지침에 동의합니다.</label>
+                       </div>   
+                </td> 
+            </tr>
+        </table>
+
+
+
+        <table class="qna" width=100%> 
+          <tr>
+            <td colspan="2"><div style="float:right;"><span class="essential"></span> 는 필수 입력사항입니다</div></td>
+      </tr>
+      
+      <input type="hidden" name="title" value="회원가입">
+      <tr>
+        <th class="contact_name"><b>이<b style="padding-left: 20px;">&nbsp;</b>름</b></th>
+            <td><input type="text" name="a" value="" class="input5" placeholder="이름을 입력하세요"></td>
+      </tr>
+      <tr>
+        <th class="contact_phone"><b>생년월일</b></th> 
+        <td>
+          <input name="birthday" class="input5" style="width: 200px;"  type="date"  size="7" maxlength="4" id="regForm_hp2" style="width:70px;height:34px;" placeholder="년">
+          
+        </td>
+      </tr>
+      <tr>
+        <th class="contact_gender"><b>성<b style="padding-left: 20px;">&nbsp;</b>별</b></th>
+        <td>
+          <div class="md-radio has-info" style="float:left; margin-right:20px;" >
+          <input type="radio" id="sex1" name="aaa"  value="1" class="md-radiobtn" checked>
+          <label for="sex1" style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span> 남 </label>
+          </div>
+          <div class="md-radio has-warning"  style="float:left;">
+          <input type="radio" id="sex2" name="aaa"  value="2" class="md-radiobtn">
+          <label for="sex2" style="color:var(--color-black);"">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span> 여 </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th class="contact_email"><b>이 메 일</b></th>
+        <td><input type="text" name="b" value="" class="input5" size="40" placeholder="이메일을 입력하세요"></td>
+      </tr>
+      <tr>
+        <th class="contact_name"><b>아 이 디</b></th> 
+            <td><input type="text" name="a" value="" class="id" placeholder="사용할 아이디를 입력하세요">
+              <button class="btn_hover bg_color_orange" value=""><span>확인</span></button>
+            </td>
+            
+      </tr>
+      <tr>
+        <td colspan="2">
+                <table><tr>
+                    <th class="contact_name"><b>비밀번호</b></th>  
+                    <td><input type="text" name="a" value="" class="pw1" placeholder="비밀번호를 입력하세요"></td>
+                    <th class="contact_name" style="width: 180px; padding-left: 50px;"><b>비밀번호<x style="font-size: 12px;">(확인)</x></b></th>  
+                    <td><input type="text" name="a" value="" class="pw2" placeholder="비밀번호를 한번더 확인하세요"></td>
+                  </tr></table>
+
+        </td>
+        
+      </tr>
+      <!--
+      <tr>
+        <th><b>일반전화</b></th>
+        <td><input type="text" name="c" value="" class="input5" style="width:100%;"></td>
+      </tr>
+      -->
+      <tr>
+        <th class="contact_phone"><b>연 락 처</b></th>
+        <td>
+          <input name="hp1" class="input5" style="width: 100px;"  type="text"  size="7" maxlength="4" id="regForm_hp2" style="width:70px;height:34px;" value="010">
+          <input name="hp2" class="input5" style="width: 100px;"  type="text"  size="7" maxlength="4" id="regForm_hp2" style="width:70px;height:34px;">
+          <input name="hp3" class="input5" style="width: 100px;"  type="text"  size="7" maxlength="4" id="regForm_hp3" style="width:70px;height:34px;" />
+        </td>
+      </tr>
+        
+        
+      <tr>
+        <th class="contact_why"><b>수강동기</b></th> 
+        <td style="padding-top:0.5em;">
+          <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="focus1" name="bbb" value="1" class="md-radiobtn"  >
+          <label for="focus1" style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span>취업</label>
+          </div>
+    
+          <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="focus2" name="bbb" value="5" class="md-radiobtn"  >
+          <label for="focus2" style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span>이직</label>
+          </div>
+    
+          <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="focus5" name="bbb" value="8" class="md-radiobtn"  >
+          <label for="focus5" style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span>창업</label>
+          </div>
+    
+          <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="focus6" name="bbb" value="6" class="md-radiobtn"  >
+          <label for="focus6" style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span>자기개발</label>
+          </div>
+    
+    
+          <div class="md-radio has-info" style="float:left;;" >
+          <input type="radio" id="focus7" name="bbb" value="7" class="md-radiobtn"  >
+          <label for="focus7" style="color:var(--color-black);" >
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span>기타</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th class="contact_campus"><b>캠 퍼 스</b></th> 
+        <td style="padding-top:0.5em;">
+              <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="5" name="ccc"  value="5" class="md-radiobtn">			<label for="5"   style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span> 신촌센터 </label>
+          </div> 
+    
+    
+                <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="36" name="ccc"  value="36" class="md-radiobtn">			<label for="36"   style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span> 강남센터 </label>
+          </div> 
+    
+    
+                <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="39" name="ccc"  value="39" class="md-radiobtn">			<label for="39"   style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span> 성수센터 </label>
+          </div> 
+    
+    
+                <div class="md-radio has-info" style="float:left;margin-right:20px;" >
+          <input type="radio" id="place_not" name="ccc" value="0" class="md-radiobtn" checked>
+          <label for="place_not" style="color:var(--color-black);">
+          <span></span>
+          <span class="check"></span>
+          <span class="box"></span>장소무관</label>
+          </div> 
+        </td>
+      </tr>
+      
+      
+      <tr>
+        <th class="contact_title"><b>자기소개 </b></th>
+        <td><input type="text" name="b" value="" class="input5" size="40" placeholder="제목을 입력하세요"></td>
+      </tr>
+
+      <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+      <tr> 
+        <th class="contact_title"><b>내<b style="padding-left: 20px;">&nbsp;</b>용</b></th>
+        <td><textarea width="100%" name="content" id="comment" class="ckeditor" placeholder="자기소개를 입력하세요"></textarea></td>
+      </tr>
+
+
+
+         
+            </table> 
+          
+
+
+<!-- 개인정보 동의 -->
+      <div class="center">
+        <a href="agree.php" target="_blank">
+          <i class="fa fa-check"></i>개인정보 보호를 위한 이용자 동의사항</a>
+        <div>
+         <input type="checkbox" name=agree value="1" id="agree" class="md-check">
+         <label for="agree">가입에 필요한 모든 정보제공에 동의합니다.</label>
+        </div>
+      </div>
+
+      <div style="text-align: center; width: 100%;"><button class="btn_hover bg_color_orange" value=""><span>가입신청</span></button></div>
+<!--// End : 개인정보 동의 -->
+
+
+  
+ 
+
+ 
+
+
+      </div>
+      <!--// End : class : contact -->
+
+      <!-- CKEeditor Script -->
+      <script>
+        CKEDITOR.replace( 'content', {
+          filebrowserUploadUrl: 'editors/ckeditor/upload_ck.php' 
+        });
+
+
+
+        CKEDITOR.config.toolbar = [
+        ['Styles','Format','Font','FontSize'],
+
+        ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste', 'Replace','-','Outdent','Indent','-','Print'],
+
+        ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ['Image','Table','-','Link', 'Smiley','TextColor','BGColor','Source']
+        ] ;
+
+        CKEDITOR.config.height = 300;    
+      </script>
+      <!-- // End : CKEeditor Script -->
+
+
+      
+ 
+ 
+
+
+
+
+
+      <div class="greeting1" style="margin: 80px 0;">
+        <div class="ceo_txt">
+
+          <div class="txt" id="txt">
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+</div>
+<!--// sub_study -->
+
+</div>
+<!-- main_contents -->
+
+</div>
+<!-- // ************* Subpage ************* -->
+
+
+
+
+  <!-- ************************** Footer ************************************-->
+  <!-- incrude Html -->
+  <!-- Head -->
+  <div data-include-path="_footer.html"></div>
+  <!-- // End : incrude Html -->
+</body>
+
+</html>
