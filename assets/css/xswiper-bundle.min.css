@@ -1,0 +1,680 @@
+/**
+ * Swiper 7.2.0
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * https://swiperjs.com
+ *
+ * Copyright 2014-2021 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: October 27, 2021
+ */
+
+
+.xswiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1
+}
+
+.xswiper-vertical>.xswiper-wrapper {
+    flex-direction: column
+}
+
+.xswiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box
+}
+
+.xswiper-android .xswiper-slide,
+.xswiper-wrapper {
+    transform: translate3d(0px, 0, 0)
+}
+
+.xswiper-pointer-events {
+    touch-action: pan-y
+}
+
+.xswiper-pointer-events.xswiper-vertical {
+    touch-action: pan-x
+}
+
+.xswiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform
+}
+
+.xswiper-slide-invisible-blank {
+    visibility: hidden
+}
+
+.xswiper-autoheight,
+.xswiper-autoheight .xswiper-slide {
+    height: auto
+}
+
+.xswiper-autoheight .xswiper-wrapper {
+    align-items: flex-start;
+    transition-property: transform, height
+}
+
+.xswiper-3d,
+.xswiper-3d.xswiper-css-mode .xswiper-wrapper {
+    perspective: 1200px
+}
+
+.xswiper-3d .xswiper-cube-shadow,
+.xswiper-3d .xswiper-slide,
+.xswiper-3d .xswiper-slide-shadow,
+.xswiper-3d .xswiper-slide-shadow-bottom,
+.xswiper-3d .xswiper-slide-shadow-left,
+.xswiper-3d .xswiper-slide-shadow-right,
+.xswiper-3d .xswiper-slide-shadow-top,
+.xswiper-3d .xswiper-wrapper {
+    transform-style: preserve-3d
+}
+
+.xswiper-3d .xswiper-slide-shadow,
+.xswiper-3d .xswiper-slide-shadow-bottom,
+.xswiper-3d .xswiper-slide-shadow-left,
+.xswiper-3d .xswiper-slide-shadow-right,
+.xswiper-3d .xswiper-slide-shadow-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10
+}
+
+.xswiper-3d .xswiper-slide-shadow {
+    background: rgba(0, 0, 0, .15)
+}
+
+.xswiper-3d .xswiper-slide-shadow-left {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+}
+
+.xswiper-3d .xswiper-slide-shadow-right {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+}
+
+.xswiper-3d .xswiper-slide-shadow-top {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+}
+
+.xswiper-3d .xswiper-slide-shadow-bottom {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+}
+
+.xswiper-css-mode>.xswiper-wrapper {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none
+}
+
+.xswiper-css-mode>.xswiper-wrapper::-webkit-scrollbar {
+    display: none
+}
+
+.xswiper-css-mode>.xswiper-wrapper>.xswiper-slide {
+    scroll-snap-align: start start
+}
+
+.xswiper-horizontal.xswiper-css-mode>.xswiper-wrapper {
+    scroll-snap-type: x mandatory
+}
+
+.xswiper-vertical.xswiper-css-mode>.xswiper-wrapper {
+    scroll-snap-type: y mandatory
+}
+
+.xswiper-centered>.xswiper-wrapper::before {
+    content: '';
+    flex-shrink: 0;
+    order: 9999
+}
+
+.xswiper-centered.xswiper-horizontal>.xswiper-wrapper>.xswiper-slide:first-child {
+    margin-inline-start: var(--swiper-centered-offset-before)
+}
+
+.xswiper-centered.xswiper-horizontal>.xswiper-wrapper::before {
+    height: 100%;
+    min-height: 1px;
+    width: var(--swiper-centered-offset-after)
+}
+
+.xswiper-centered.xswiper-vertical>.xswiper-wrapper>.xswiper-slide:first-child {
+    margin-block-start: var(--swiper-centered-offset-before)
+}
+
+.xswiper-centered.xswiper-vertical>.xswiper-wrapper::before {
+    width: 100%;
+    min-width: 1px;
+    height: var(--swiper-centered-offset-after)
+}
+
+.xswiper-centered>.xswiper-wrapper>.xswiper-slide {
+    scroll-snap-align: center center
+}
+
+.xswiper-virtual.xswiper-css-mode .xswiper-wrapper::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none
+}
+
+.xswiper-virtual.xswiper-css-mode.xswiper-horizontal .xswiper-wrapper::after {
+    height: 1px;
+    width: var(--swiper-virtual-size)
+}
+
+.xswiper-virtual.xswiper-css-mode.xswiper-vertical .xswiper-wrapper::after {
+    width: 1px;
+    height: var(--swiper-virtual-size)
+}
+
+:root {
+    --swiper-navigation-size: 44px
+}
+
+.xswiper-button-next,
+.xswiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: calc(var(--swiper-navigation-size)/ 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color))
+}
+
+.xswiper-button-next.xswiper-button-disabled,
+.xswiper-button-prev.xswiper-button-disabled {
+    opacity: .35;
+    cursor: auto;
+    pointer-events: none
+}
+
+.xswiper-button-next:after,
+.xswiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1
+}
+
+.xswiper-button-prev,
+.xswiper-rtl .xswiper-button-next {
+    left: 10px;
+    right: auto
+}
+
+.xswiper-button-prev:after,
+.xswiper-rtl .xswiper-button-next:after {
+    content: 'prev'
+}
+
+.xswiper-button-next,
+.xswiper-rtl .xswiper-button-prev {
+    right: 10px;
+    left: auto
+}
+
+.xswiper-button-next:after,
+.xswiper-rtl .xswiper-button-prev:after {
+    content: 'next'
+}
+
+.xswiper-button-lock {
+    display: none
+}
+
+.xswiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10
+}
+
+.xswiper-pagination.xswiper-pagination-hidden {
+    opacity: 0
+}
+
+.xswiper-horizontal>.xswiper-pagination-bullets,
+.xswiper-pagination-bullets.xswiper-pagination-horizontal,
+.xswiper-pagination-custom,
+.xswiper-pagination-fraction {
+    bottom: 10px;
+    left: 0;
+    width: 100%
+}
+
+.xswiper-pagination-bullets-dynamic {
+    overflow: hidden;
+    font-size: 0
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet {
+    transform: scale(.33);
+    position: relative
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet-active {
+    transform: scale(1)
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet-active-main {
+    transform: scale(1)
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet-active-prev {
+    transform: scale(.66)
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet-active-prev-prev {
+    transform: scale(.33)
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet-active-next {
+    transform: scale(.66)
+}
+
+.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet-active-next-next {
+    transform: scale(.33)
+}
+
+.xswiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--swiper-pagination-bullet-inactive-color, #000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, .5)
+}
+
+button.xswiper-pagination-bullet {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none
+}
+
+.xswiper-pagination-clickable .xswiper-pagination-bullet {
+    cursor: pointer
+}
+
+.xswiper-pagination-bullet:only-child {
+    display: none !important
+}
+
+.xswiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color, var(--swiper-theme-color))
+}
+
+.xswiper-pagination-vertical.xswiper-pagination-bullets,
+.xswiper-vertical>.xswiper-pagination-bullets {
+    right: 10px;
+    top: 50%;
+    transform: translate3d(0px, -50%, 0)
+}
+
+.xswiper-pagination-vertical.xswiper-pagination-bullets .xswiper-pagination-bullet,
+.xswiper-vertical>.xswiper-pagination-bullets .xswiper-pagination-bullet {
+    margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
+    display: block
+}
+
+.xswiper-pagination-vertical.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic,
+.xswiper-vertical>.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px
+}
+
+.xswiper-pagination-vertical.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet,
+.xswiper-vertical>.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet {
+    display: inline-block;
+    transition: .2s transform, .2s top
+}
+
+.xswiper-horizontal>.xswiper-pagination-bullets .xswiper-pagination-bullet,
+.xswiper-pagination-horizontal.xswiper-pagination-bullets .xswiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px)
+}
+
+.xswiper-horizontal>.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic,
+.xswiper-pagination-horizontal.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic {
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap
+}
+
+.xswiper-horizontal>.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet,
+.xswiper-pagination-horizontal.xswiper-pagination-bullets.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet {
+    transition: .2s transform, .2s left
+}
+
+.xswiper-horizontal.xswiper-rtl>.xswiper-pagination-bullets-dynamic .xswiper-pagination-bullet {
+    transition: .2s transform, .2s right
+}
+
+.xswiper-pagination-progressbar {
+    background: rgba(0, 0, 0, .25);
+    position: absolute
+}
+
+.xswiper-pagination-progressbar .xswiper-pagination-progressbar-fill {
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transform-origin: left top
+}
+
+.xswiper-rtl .xswiper-pagination-progressbar .xswiper-pagination-progressbar-fill {
+    transform-origin: right top
+}
+
+.xswiper-horizontal>.xswiper-pagination-progressbar,
+.xswiper-pagination-progressbar.xswiper-pagination-horizontal,
+.xswiper-pagination-progressbar.xswiper-pagination-vertical.xswiper-pagination-progressbar-opposite,
+.xswiper-vertical>.xswiper-pagination-progressbar.xswiper-pagination-progressbar-opposite {
+    width: 100%;
+    height: 4px;
+    left: 0;
+    top: 0
+}
+
+.xswiper-horizontal>.xswiper-pagination-progressbar.xswiper-pagination-progressbar-opposite,
+.xswiper-pagination-progressbar.xswiper-pagination-horizontal.xswiper-pagination-progressbar-opposite,
+.xswiper-pagination-progressbar.xswiper-pagination-vertical,
+.xswiper-vertical>.xswiper-pagination-progressbar {
+    width: 4px;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+
+.xswiper-pagination-lock {
+    display: none
+}
+
+.xswiper-scrollbar {
+    border-radius: 10px;
+    position: relative;
+    -ms-touch-action: none;
+    background: rgba(0, 0, 0, .1)
+}
+
+.xswiper-horizontal>.xswiper-scrollbar {
+    position: absolute;
+    left: 1%;
+    bottom: 3px;
+    z-index: 50;
+    height: 5px;
+    width: 98%
+}
+
+.xswiper-vertical>.xswiper-scrollbar {
+    position: absolute;
+    right: 3px;
+    top: 1%;
+    z-index: 50;
+    width: 5px;
+    height: 98%
+}
+
+.xswiper-scrollbar-drag {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    left: 0;
+    top: 0
+}
+
+.xswiper-scrollbar-cursor-drag {
+    cursor: move
+}
+
+.xswiper-scrollbar-lock {
+    display: none
+}
+
+.xswiper-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center
+}
+
+.xswiper-zoom-container>canvas,
+.xswiper-zoom-container>img,
+.xswiper-zoom-container>svg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain
+}
+
+.xswiper-slide-zoomed {
+    cursor: move
+}
+
+.xswiper-lazy-preloader {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    z-index: 10;
+    transform-origin: 50%;
+    animation: swiper-preloader-spin 1s infinite linear;
+    box-sizing: border-box;
+    border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
+    border-radius: 50%;
+    border-top-color: transparent
+}
+
+.xswiper-lazy-preloader-white {
+    --swiper-preloader-color: #fff
+}
+
+.xswiper-lazy-preloader-black {
+    --swiper-preloader-color: #000
+}
+
+@keyframes swiper-preloader-spin {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.xswiper .xswiper-notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1000
+}
+
+.xswiper-free-mode>.xswiper-wrapper {
+    transition-timing-function: ease-out;
+    margin: 0 auto
+}
+
+.xswiper-grid>.xswiper-wrapper {
+    flex-wrap: wrap
+}
+
+.xswiper-grid-column>.xswiper-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column
+}
+
+.xswiper-fade.xswiper-free-mode .xswiper-slide {
+    transition-timing-function: ease-out
+}
+
+.xswiper-fade .xswiper-slide {
+    pointer-events: none;
+    transition-property: opacity
+}
+
+.xswiper-fade .xswiper-slide .xswiper-slide {
+    pointer-events: none
+}
+
+.xswiper-fade .xswiper-slide-active,
+.xswiper-fade .xswiper-slide-active .xswiper-slide-active {
+    pointer-events: auto
+}
+
+.xswiper-cube {
+    overflow: visible
+}
+
+.xswiper-cube .xswiper-slide {
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+    visibility: hidden;
+    transform-origin: 0 0;
+    width: 100%;
+    height: 100%
+}
+
+.xswiper-cube .xswiper-slide .xswiper-slide {
+    pointer-events: none
+}
+
+.xswiper-cube.xswiper-rtl .xswiper-slide {
+    transform-origin: 100% 0
+}
+
+.xswiper-cube .xswiper-slide-active,
+.xswiper-cube .xswiper-slide-active .xswiper-slide-active {
+    pointer-events: auto
+}
+
+.xswiper-cube .xswiper-slide-active,
+.xswiper-cube .xswiper-slide-next,
+.xswiper-cube .xswiper-slide-next+.xswiper-slide,
+.xswiper-cube .xswiper-slide-prev {
+    pointer-events: auto;
+    visibility: visible
+}
+
+.xswiper-cube .xswiper-slide-shadow-bottom,
+.xswiper-cube .xswiper-slide-shadow-left,
+.xswiper-cube .xswiper-slide-shadow-right,
+.xswiper-cube .xswiper-slide-shadow-top {
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+.xswiper-cube .xswiper-cube-shadow {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: .6;
+    z-index: 0
+}
+
+.xswiper-cube .xswiper-cube-shadow:before {
+    content: '';
+    background: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    filter: blur(50px)
+}
+
+.xswiper-flip {
+    overflow: visible
+}
+
+.xswiper-flip .xswiper-slide {
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1
+}
+
+.xswiper-flip .xswiper-slide .xswiper-slide {
+    pointer-events: none
+}
+
+.xswiper-flip .xswiper-slide-active,
+.xswiper-flip .xswiper-slide-active .xswiper-slide-active {
+    pointer-events: auto
+}
+
+.xswiper-flip .xswiper-slide-shadow-bottom,
+.xswiper-flip .xswiper-slide-shadow-left,
+.xswiper-flip .xswiper-slide-shadow-right,
+.xswiper-flip .xswiper-slide-shadow-top {
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+.xswiper-creative .xswiper-slide {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition-property: transform, opacity, height
+}
+
+.xswiper-cards {
+    overflow: visible
+}
+
+.xswiper-cards .xswiper-slide {
+    transform-origin: center bottom;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden
+}

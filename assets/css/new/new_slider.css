@@ -1,0 +1,126 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+.xslide-container{
+  max-width: 1280px;
+  width: 100%;
+  padding: 40px 0;
+}
+.xslide-contentx{
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.xcard{
+  border-radius: 25px;
+  background-color: #FFF;
+}
+.ximage-content,
+.xcard-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.ximage-content{
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+.xoverlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4070F4;
+  border-radius: 25px 25px 0 25px;
+}
+.xoverlay::before,
+.xoverlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #4070F4;
+}
+.xoverlay::after{
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+.xcard-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.xcard-image .xcard-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070F4;
+}
+.xname{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+.xdescription{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.xbutton{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.xbutton:hover{
+  background: #265DF2;
+}
+
+.xswiper-navBtn{
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+.xswiper-navBtn:hover{
+  color: #4070F4;
+}
+.xswiper-navBtn::before,
+.xswiper-navBtn::after{
+  font-size: 35px;
+}
+.xswiper-button-next{
+  right: 0;
+}
+.xswiper-button-prev{
+  left: 0;
+}
+.xswiper-pagination-bullet{
+  background-color: #6E93f7;
+  opacity: 1;
+}
+.xswiper-pagination-bullet-active{
+  background-color: #4070F4;
+}
+
+@media screen and (max-width: 768px) {
+  .xslide-contentx{
+    margin: 0 10px;
+  }
+  .xswiper-navBtn{
+    display: none;
+  }
+}
